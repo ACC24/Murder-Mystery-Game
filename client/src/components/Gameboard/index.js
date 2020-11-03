@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Timer from 'react-compound-timer';
+import { Link } from "react-router-dom";
 
 class Gameboard extends Component {
     constructor() {
@@ -7,6 +8,7 @@ class Gameboard extends Component {
     }
     render() {
         return (
+            <section>
             <Timer
                 initialTime={1200000}
                 startImmediately={false}
@@ -28,6 +30,12 @@ class Gameboard extends Component {
                     </React.Fragment>
                 )}
             </Timer>
+
+            <Link to="/" className="btn-flat waves-effect">
+                            <i className="material-icons left"></i> Logout
+            </Link>
+            </section>
+            
         );
     }
 }
