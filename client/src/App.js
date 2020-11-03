@@ -5,6 +5,7 @@ import Navbar from "./components/Navigation/index";
 import Landing from "./components/Landing/index";
 import Signup from "./components/Authentication/signup";
 import Login from "./components/Authentication/login";
+import Gameboard from "./components/Gameboard/index";
 
 import { Provider } from "react-redux";
 import store from "./store";
@@ -19,6 +20,7 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Signup} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/gameboard" component={Gameboard} />
           </div>
         </Router>
       </Provider>
