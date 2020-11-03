@@ -24,6 +24,8 @@ class Signup extends Component {
             password2: this.state.password2
         };
         console.log(newPlayer);
+        this.props.history.push('/gameboard');
+        
     };
     render() {
         const { errors } = this.state;
@@ -35,9 +37,7 @@ class Signup extends Component {
                             <i className="material-icons left"></i> Home
             </Link>
                         <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                            <h4>
-                                <b>Register</b> below
-              </h4>
+                            <h4><b>Register</b> below</h4>
                             <p className="grey-text text-darken-1">
                                 Already have an account? <Link to="/login">Log in</Link>
                             </p>
