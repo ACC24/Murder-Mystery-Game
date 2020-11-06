@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
 // Create Schema
-const playerSchema = new Schema({
+const UserSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -20,4 +19,4 @@ const playerSchema = new Schema({
     default: Date.now
   }
 });
-module.exports = Player = mongoose.model("player", playerSchema);
+module.exports = User = mongoose.model("users", UserSchema);
