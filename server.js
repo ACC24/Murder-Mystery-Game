@@ -30,5 +30,6 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
+console.log(process.env);
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
