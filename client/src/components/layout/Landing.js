@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 import house from "../../assets/images/house.jpg"
+=======
+
+>>>>>>> 1d2d75d24bf8b8acffae23e08dad5717a3a83af5
 class Landing extends Component {
   render() {
     return (
