@@ -13,6 +13,11 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
 import Gameboard from "./components/Gameboard";
+import Scoreboard from "./components/Scoreboard";
+import Bedroom from "./components/Bedroom";
+import Garden from "./components/Garden";
+import Kitchen from "./components/Kitchen";
+import Library from "./components/Library";
 
 
 import "./App.css";
@@ -49,6 +54,12 @@ class App extends Component {
             
             <Switch>
               <PrivateRoute exact path="/gameboard" component={Gameboard} />
+              <PrivateRoute exact path="/bedroom" component={Bedroom} />
+              <PrivateRoute exact path="/kitchen" component={Kitchen} />
+              <PrivateRoute exact path="/library" component={Library} />
+              <PrivateRoute exact path="/garden" component={Garden} />
+              <PrivateRoute exact path="/scoreboard" component={Scoreboard} />
+              
             </Switch>
           </div>
         </Router>
