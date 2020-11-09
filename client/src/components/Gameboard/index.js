@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { logoutUser } from "../../actions/authActions";
+// import { logoutUser } from "../../actions/authActions";
+// import "./Gameboard.css"
 
 class Gameboard extends Component {
-  onLogoutClick = e => {
+  onStartClick = e => {
     e.preventDefault();
-    this.props.logoutUser();
+    this.props.history.push("/bedroom");
   };
 
   render() {
@@ -30,10 +31,10 @@ class Gameboard extends Component {
                 letterSpacing: "1.5px",
                 marginTop: "1rem"
               }}
-              onClick={this.onLogoutClick}
+              onClick={this.onStartClick}
               className="btn btn-large waves-effect waves-light hoverable blue accent-3"
             >
-              Logout
+              Start
             </button>
           </div>
         </div>
@@ -52,6 +53,5 @@ const mapStateToProps = state => ({
 });
 
 export default connect(
-  mapStateToProps,
-  { logoutUser }
-)(Gameboard);
+  mapStateToProps
+  )(Gameboard);
