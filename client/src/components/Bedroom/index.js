@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button } from "reactstrap";
 // import "./Bedroom.css"
 
 class Bedroom extends Component {
@@ -9,7 +10,7 @@ class Bedroom extends Component {
     render() {
       return (
         <div>
-          <button onClick={this.onNextClick}>Next</button>
+          <Button onClick={this.onNextClick}>Next</Button>
         </div>
       );
     }

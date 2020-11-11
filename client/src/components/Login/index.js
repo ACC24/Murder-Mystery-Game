@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
+import { Button, Form, FormGroup, Input, Row, Col } from "reactstrap"
 
 class Login extends Component {
   constructor() {
@@ -68,56 +69,49 @@ class Login extends Component {
                 Don't have an account? <Link to="/register">Register</Link>
               </p>
             </div>
-            <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.email}
-                  error={errors.email}
-                  id="email"
-                  type="email"
-                  className={classnames("", {
-                    invalid: errors.email || errors.emailnotfound
-                  })}
-                />
-                <label htmlFor="email">Email</label>
-                <span className="red-text">
-                  {errors.email}
-                  {errors.emailnotfound}
-                </span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.password}
-                  error={errors.password}
-                  id="password"
-                  type="password"
-                  className={classnames("", {
-                    invalid: errors.password || errors.passwordincorrect
-                  })}
-                />
-                <label htmlFor="password">Password</label>
-                <span className="red-text">
-                  {errors.password}
-                  {errors.passwordincorrect}
-                </span>
-              </div>
-              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
-                  style={{
-                    width: "150px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem"
-                  }}
-                  type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                >
-                  Login
-                </button>
-              </div>
-            </form>
+            <Form noValidate onSubmit={this.onSubmit}>
+              <Row form>
+                <Col md={3}>
+                  <FormGroup>
+                    <Input
+                      onChange={this.onChange}
+                      value={this.state.email}
+                      error={errors.email}
+                      id="email"
+                      type="email"
+                      placeholder="Email"
+                      className={classnames("", {
+                        invalid: errors.email || errors.emailnotfound
+                      })}
+                    />
+                    <span className="red-text">
+                      {errors.email}
+                      {errors.emailnotfound}
+                    </span>
+                  </FormGroup>
+                  <FormGroup>
+                    <Input
+                      onChange={this.onChange}
+                      value={this.state.password}
+                      error={errors.password}
+                      id="password"
+                      type="password"
+                      placeholder="Password"
+                      className={classnames("", {
+                        invalid: errors.password || errors.passwordincorrect
+                      })}
+                    />
+                    <span className="red-text">
+                      {errors.password}
+                      {errors.passwordincorrect}
+                    </span>
+                  </FormGroup>
+                  <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+                    <Button type="submit">Login</Button>
+                  </div>
+                </Col>
+              </Row>
+            </Form>
           </div>
         </div>
       </div>
