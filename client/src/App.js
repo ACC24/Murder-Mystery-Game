@@ -7,7 +7,7 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
-import Navbar from "./components/Navbar";
+import Nav from "./components/Navbar";
 import Landing from "./components/Landing";
 import Register from "./components/Register";
 import Login from "./components/Login";
@@ -18,8 +18,6 @@ import Bedroom from "./components/Bedroom";
 import Garden from "./components/Garden";
 import Kitchen from "./components/Kitchen";
 import Library from "./components/Library";
-
-
 import "./App.css";
 
 // Check for token to keep user logged in
@@ -41,13 +39,14 @@ if (localStorage.jwtToken) {
     window.location.href = "./login";
   }
 }
+
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Navbar />
+            <Nav />
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
@@ -59,7 +58,6 @@ class App extends Component {
               <PrivateRoute exact path="/library" component={Library} />
               <PrivateRoute exact path="/garden" component={Garden} />
               <PrivateRoute exact path="/scoreboard" component={Scoreboard} />
-              
             </Switch>
           </div>
         </Router>
