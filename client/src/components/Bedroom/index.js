@@ -9,7 +9,7 @@ class Bedroom extends Component {
     render() {
       return (
         <div>
-          <button onClick={this.onNextClick}>Next </button>
+          <button onClick={this.onNextClick}>Next</button>
         </div>
       );
     }

@@ -106,4 +106,20 @@ router.post("/login", (req, res) => {
   });
 });
 
+
+router.put("/scores", (req, res) => {
+  const name = req.body.name;
+  const score = req.body.highscores;
+  // check if the username already exists
+  const alreadyExisting = User.findOne({ name });
+  if (alreadyExisting) {
+      // Update player object with the username
+      User.updateOne({ name }, { $set: { name, score } });
+      console.log(`Player ${name} score updated to ${score}`);
+      res.send({ status: true, msg: "player score updated" });
+  } else {
+      res.send({ status: false, msg: "player name not found" });
+  }
+});
+
 module.exports = router;
