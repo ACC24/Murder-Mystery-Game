@@ -4,7 +4,7 @@ import "./Garden.css"
 class Garden extends Component {
   onNextClick = e => {
     e.preventDefault();
-    this.props.history.push("/scoreboard");
+    this.props.history.push("/bedroom");
   };
     render() {
       return (

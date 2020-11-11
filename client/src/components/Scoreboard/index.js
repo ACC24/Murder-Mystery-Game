@@ -25,6 +25,9 @@ class Scoreboard extends Component {
               </h4>
               <ul>
                 <li>Placeholder item</li>
+                <li>Placeholder item</li>
+                <li>Placeholder item</li>
+                <li>Placeholder item</li>
                 </ul>
             <button
               onClick={this.onLogoutClick}

@@ -54,9 +54,10 @@ class Nav extends Component {
           </div>
           <div className="timer">
             <Timer
-              initialTime={900000}
+              initialTime={30000}
               startImmediately={true}
               direction="backward"
+              on
             >
               {() => (
                 <React.Fragment>
