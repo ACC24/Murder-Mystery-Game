@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "reactstrap";
+import { Container } from "reactstrap";
 
 class Register extends Component {
   constructor() {
@@ -55,7 +57,6 @@ class Register extends Component {
 
     return (
       <div
-        className="container translucent-form-overlay col-md-12"
         style={{
           borderColor: "yellow",
           color: "white",
