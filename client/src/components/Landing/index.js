@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Landing.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "reactstrap";
 
 class Landing extends Component {
   render() {
@@ -30,7 +31,7 @@ class Landing extends Component {
               <Link
                 to="/login"
                 style={{
-                  borderColor:"yellow",
+                  borderColor: "yellow",
                   color: "yellow",
                   background: "dark blue",
                   width: "140px",
