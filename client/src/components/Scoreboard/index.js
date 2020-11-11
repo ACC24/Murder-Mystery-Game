@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import { Button, ListGroup, ListGroupItem, Row, Col } from "reactstrap";
 // import "./Scoreboard.css"
 
 class Scoreboard extends Component {
@@ -18,31 +19,20 @@ class Scoreboard extends Component {
   render() {
     return (
       <div className="container">
-        <div className="row">
-          <div className="landing-copy col s12 center-align">
-            <h4 className="flow-text grey-text text-darken-1">
-              High Scores
-              </h4>
-              <ul>
-                <li>Placeholder item</li>
-                <li>Placeholder item</li>
-                <li>Placeholder item</li>
-                <li>Placeholder item</li>
-                </ul>
-            <button
-              onClick={this.onLogoutClick}
-              className="btn btn-large"
-            >
-              Logout
-            </button>
-            <button
-              onClick={this.onRestartClick}
-              className="btn btn-large"
-            >
-              Restart
-            </button>
-          </div>
-        </div>
+        <h4 className="flow-text grey-text text-darken-1">High Scores</h4>
+        <Row>
+          <Col md={6}>
+            <ListGroup>
+              <ListGroupItem>Cras justo odio</ListGroupItem>
+              <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
+              <ListGroupItem>Morbi leo risus</ListGroupItem>
+              <ListGroupItem>Porta ac consectetur ac</ListGroupItem>
+              <ListGroupItem>Vestibulum at eros</ListGroupItem>
+            </ListGroup>
+            <Button onClick={this.onLogoutClick}>Logout</Button>
+            <Button onClick={this.onRestartClick}>Restart</Button>
+          </Col>
+        </Row>
       </div>
     );
   }
