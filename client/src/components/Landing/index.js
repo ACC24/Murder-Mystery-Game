@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Landing.css";
-import { Button } from "reactstrap";
+import { Button, Navbar } from "reactstrap";
 
 class Landing extends Component {
   onRegisterClick = e => {
@@ -16,8 +16,10 @@ class Landing extends Component {
   render() {
     return (
       <div>
+        <Navbar>
         <Button onClick={this.onRegisterClick}>Register</Button>
         <Button onClick={this.onLoginClick}>Login</Button>
+        </Navbar>
         
       </div>
     );
