@@ -1,0 +1,8 @@
+body {
+    background-image: url(../../assets/images/kitchen.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+  }
+  

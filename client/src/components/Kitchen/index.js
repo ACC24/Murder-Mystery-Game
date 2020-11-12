@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import "./Kitchen.css"
+import "./Kitchen.css"
 
 class Kitchen extends Component {
   onNextClick = e => {

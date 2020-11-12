@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import "./Bedroom.css"
+import "./Bedroom.css"
 
 class Bedroom extends Component {
   onNextClick = e => {
