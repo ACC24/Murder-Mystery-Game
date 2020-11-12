@@ -3,9 +3,25 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { Button, ListGroup, ListGroupItem, Row, Col } from "reactstrap";
+import axios from "axios";
 // import "./Scoreboard.css"
 
 class Scoreboard extends Component {
+  constructor() {
+    super();
+    this.state = {
+     data: []
+    };
+  }
+
+  componentDidMount() {
+    axios.get("/api/users/scores").then(res => {
+      this.setState({
+        data: res.data
+      });
+    });
+  }
+
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
@@ -22,13 +38,12 @@ class Scoreboard extends Component {
         <h4 className="flow-text grey-text text-darken-1">High Scores</h4>
         <Row>
           <Col md={6}>
-            <ListGroup>
-              <ListGroupItem>Cras justo odio</ListGroupItem>
-              <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-              <ListGroupItem>Morbi leo risus</ListGroupItem>
-              <ListGroupItem>Porta ac consectetur ac</ListGroupItem>
-              <ListGroupItem>Vestibulum at eros</ListGroupItem>
+          {this.state.data.map((data, i) => 
+            <ListGroup key={i}>
+              <ListGroupItem>{data.name} {data.highscores}</ListGroupItem>
+                    
             </ListGroup>
+            )}
             <Button onClick={this.onLogoutClick}>Logout</Button>
             <Button onClick={this.onRestartClick}>Restart</Button>
           </Col>

@@ -60,7 +60,7 @@ class Register extends Component {
             <Link to="/" className="btn-flat waves-effect">
               Back to
               home
-            </Link>
+            </Link>            
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
               <h4>
                 <b>Register</b> below
@@ -70,68 +70,68 @@ class Register extends Component {
               </p>
             </div>
             <Form noValidate onSubmit={this.onSubmit}>
-              <Row form>
-                <Col md={3}>
-                  <FormGroup>
-                    <Input
-                      onChange={this.onChange}
-                      value={this.state.name}
-                      error={errors.name}
-                      id="name"
-                      type="text"
-                      placeholder="Name"
-                      className={classnames("", {
-                        invalid: errors.name
-                      })}
-                    />
-                    <span className="red-text">{errors.name}</span>
-                  </FormGroup>
-                  <FormGroup>
-                    <Input
-                      onChange={this.onChange}
-                      value={this.state.email}
-                      error={errors.email}
-                      id="email"
-                      type="email"
-                      placeholder="Email"
-                      className={classnames("", {
-                        invalid: errors.email
-                      })}
-                    />
-                    <span className="red-text">{errors.email}</span>
-                  </FormGroup>
-                  <FormGroup>
-                    <Input
-                      onChange={this.onChange}
-                      value={this.state.password}
-                      error={errors.password}
-                      id="password"
-                      type="password"
-                      placeholder="Password"
-                      className={classnames("", {
-                        invalid: errors.password
-                      })}
-                    />
-                    <span className="red-text">{errors.password}</span>
-                  </FormGroup>
-                  <FormGroup>
-                    <Input
-                      onChange={this.onChange}
-                      value={this.state.password2}
-                      error={errors.password2}
-                      id="password2"
-                      type="password"
-                      placeholder="Confirm Password"
-                      className={classnames("", {
-                        invalid: errors.password2
-                      })}
-                    />
-                    <span className="red-text">{errors.password2}</span>
-                  </FormGroup>
-                  <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                    <Button type="submit">Sign up</Button>
-                  </div>
-                </Col>
+            <Row form>
+              <Col md={3}>
+                <FormGroup>
+                <Input
+                  onChange={this.onChange}
+                  value={this.state.name}
+                  error={errors.name}
+                  id="name"
+                  type="text"
+                  placeholder="Name"
+                  className={classnames("", {
+                    invalid: errors.name
+                  })}
+                />
+                <span className="red-text">{errors.name}</span>
+              </FormGroup>
+              <FormGroup>
+                <Input
+                  onChange={this.onChange}
+                  value={this.state.email}
+                  error={errors.email}
+                  id="email"
+                  type="email"
+                  placeholder="Email"
+                  className={classnames("", {
+                    invalid: errors.email
+                  })}
+                />
+                <span className="red-text">{errors.email}</span>
+              </FormGroup>
+              <FormGroup>
+                <Input
+                  onChange={this.onChange}
+                  value={this.state.password}
+                  error={errors.password}
+                  id="password"
+                  type="password"
+                  placeholder="Password"
+                  className={classnames("", {
+                    invalid: errors.password
+                  })}
+                />
+                <span className="red-text">{errors.password}</span>
+              </FormGroup>
+              <FormGroup>
+                <Input
+                  onChange={this.onChange}
+                  value={this.state.password2}
+                  error={errors.password2}
+                  id="password2"
+                  type="password"
+                  placeholder="Confirm Password"
+                  className={classnames("", {
+                    invalid: errors.password2
+                  })}
+                />
+                <span className="red-text">{errors.password2}</span>
+              </FormGroup>
+              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+                <Button type="submit">Sign up</Button>
+              </div>
+              </Col>
               </Row>
             </Form>
           </div>
