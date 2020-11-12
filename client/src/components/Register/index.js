@@ -4,9 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "reactstrap";
-import { Container } from "reactstrap";
+import { Button, Form, FormGroup, Input, Row, Col } from "reactstrap";
 
 class Register extends Component {
   constructor() {
@@ -56,113 +54,137 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <div
-        style={{
-          borderColor: "yellow",
-          color: "white",
-          width: "50pxßpx",
-          borderRadius: "25px",
-          letterSpacing: "1.5px",
-          marginTop: "0rem",
-        }}
-      >
-        <div className="row">
-          <div
-            className="col s8 offset-s2"
-            style={{
-              textAlign: "left",
-            }}
-          >
-            <h4>
-              <b>Register</b>
-            </h4>
-            <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.name}
-                  error={errors.name}
-                  id="name"
-                  type="text"
-                  className={classnames("", {
-                    invalid: errors.name,
-                  })}
-                />
-
-                <form htmlFor="name" placeholder="name">
-                  Name
-                </form>
-                <span className="red-text">{errors.name}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.email}
-                  error={errors.email}
-                  id="email"
-                  type="email"
-                  className={classnames("", {
-                    invalid: errors.email,
-                  })}
-                />
-                <form htmlFor="email">Email</form>
-                <span className="red-text">{errors.email}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.password}
-                  error={errors.password}
-                  id="password"
-                  type="password"
-                  className={classnames("", {
-                    invalid: errors.password,
-                  })}
-                />
-                <form htmlFor="password">Password</form>
-                <span className="red-text">{errors.password}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.password2}
-                  error={errors.password2}
-                  id="password2"
-                  type="password"
-                  className={classnames("", {
-                    invalid: errors.password2,
-                  })}
-                />
-                <form htmlFor="password2">Confirm Password</form>
-                <span className="red-text">{errors.password2}</span>
-              </div>
+      <div class="translucent-form-overlay col-md-12">
+        <form
+          style={{
+            marginTop: "1rem",
+            marginRight: "1000px",
+            borderRadius: "25px",
+            backgroundColor: "rgba(54, 54, 54, 0.8)",
+            color: "white",
+            letterSpacing: "1.5px",
+            marginLeft: "50px",
+          }}
+        >
+          <div className="row">
+            <div
+              className="col s2 offset-s8"
+              style={{
+                color: "yellow",
+                textAlign: "center",
+                marginTop: "1rem",
+              }}
+            >
+              <Link
+                to="/"
+                className="btn-flat waves-effect"
+                style={{
+                  color: "white",
+                }}
+              >
+                Back to home
+              </Link>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
-                  style={{
-                    borderColor: "yellow",
-                    color: "white",
-                    width: "150px",
-                    borderRadius: "25px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem",
-                  }}
-                  type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                >
-                  Sign up
-                </button>
-                <div className="col s12" style={{ paddingLeft: "25px" }}>
-                  <p className="grey-text text-darken-1">
-                    Already have an account? <Link to="/login">Log in</Link>
-                  </p>
-                  <Link to="/" className="btn-flat waves-effect">
-                    Back to home
-                  </Link>
-                </div>
+                <h4>
+                  <b>Register</b>
+                </h4>
               </div>
-            </form>
+              <Form
+                style={{ paddingLeft: "50px" }}
+                noValidate
+                onSubmit={this.onSubmit}
+              >
+                <Row form>
+                  <Col md={10}>
+                    <FormGroup>
+                      <Input
+                        onChange={this.onChange}
+                        value={this.state.name}
+                        error={errors.name}
+                        id="name"
+                        type="text"
+                        placeholder="Name"
+                        className={classnames("", {
+                          invalid: errors.name,
+                        })}
+                      />
+                      <span className="red-text">{errors.name}</span>
+                    </FormGroup>
+                    <FormGroup>
+                      <Input
+                        onChange={this.onChange}
+                        value={this.state.email}
+                        error={errors.email}
+                        id="email"
+                        type="email"
+                        placeholder="Email"
+                        className={classnames("", {
+                          invalid: errors.email,
+                        })}
+                      />
+                      <span className="red-text">{errors.email}</span>
+                    </FormGroup>
+                    <FormGroup>
+                      <Input
+                        onChange={this.onChange}
+                        value={this.state.password}
+                        error={errors.password}
+                        id="password"
+                        type="password"
+                        placeholder="Password"
+                        className={classnames("", {
+                          invalid: errors.password,
+                        })}
+                      />
+                      <span className="red-text">{errors.password}</span>
+                    </FormGroup>
+                    <FormGroup>
+                      <Input
+                        onChange={this.onChange}
+                        value={this.state.password2}
+                        error={errors.password2}
+                        id="password2"
+                        type="password"
+                        placeholder="Confirm Password"
+                        className={classnames("", {
+                          invalid: errors.password2,
+                        })}
+                      />
+                      <span className="red-text">{errors.password2}</span>
+                    </FormGroup>
+                    <div
+                      className="col s12"
+                      style={{ paddingLeft: "11.250px" }}
+                    >
+                      <Button
+                        type="submit translucent-form-overlay col-md-12"
+                        style={{
+                          color: "yellow",
+                          borderRadius: "25px",
+                          backgroundColor: "rgba(54, 54, 54, 0.8)",
+                          marginLeft: "100px",
+                        }}
+                      >
+                        Sign up
+                      </Button>
+                      <p className="grey-text text-darken-1">
+                        Already have an account?{" "}
+                        <Link
+                          to="/login"
+                          style={{
+                            color: "white",
+                          }}
+                        >
+                          Log in
+                        </Link>
+                      </p>
+                    </div>
+                  </Col>
+                </Row>
+              </Form>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
     );
   }

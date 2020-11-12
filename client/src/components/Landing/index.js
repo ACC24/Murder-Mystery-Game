@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Landing.css";
-import { Button, Navbar } from "reactstrap";
+import { Button, Navbar, Jumbotron, Container } from "reactstrap";
 
 class Landing extends Component {
   onRegisterClick = (e) => {
@@ -15,39 +15,50 @@ class Landing extends Component {
 
   render() {
     return (
-      <div>
-        <Navbar
-          className="container translucent-form-overlay col-md-12 justify-content-end"
-          style={{ width: "100%" }}
+      <Navbar
+        className="container translucent-form-overlay col-md-12 justify-content-start"
+        style={{ width: "100%" }}
+      >
+        <Button
+          style={{
+            backgroundColor: "gray",
+            color: "yellow",
+            borderColor: "yellow",
+            borderRadius: "25px",
+            fontWeight: "bolder",
+            letterSpacing: "1.5px",
+          }}
+          className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+          onClick={this.onRegisterClick}
         >
-          <Button
+          Register
+        </Button>
+        <Button
+          style={{
+            color: "yellow",
+            borderColor: "yellow",
+            backgroundColor: "gray",
+            borderRadius: "25px",
+            fontWeight: "bolder",
+            letterSpacing: "1.5px",
+          }}
+          onClick={this.onLoginClick}
+          className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+        >
+          Login
+        </Button>
+        <div className="container justify-content-center">
+          <h1
             style={{
-              backgroundColor: "inherit",
               color: "white",
-              borderRadius: "25px",
-              fontWeight: "bolder",
-              letterSpacing: "1.5px",
+              fontFamily: "Underdog, cursive",
+              fontWeight: "bold",
             }}
-            className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-            onClick={this.onRegisterClick}
           >
-            Register
-          </Button>
-          <Button
-            style={{
-              color: "white",
-              backgroundColor: "inherit",
-              borderRadius: "25px",
-              fontWeight: "bolder",
-              letterSpacing: "1.5px",
-            }}
-            onClick={this.onLoginClick}
-            className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-          >
-            Login
-          </Button>
-        </Navbar>
-      </div>
+            Murder at The Manor
+          </h1>
+        </div>
+      </Navbar>
     );
   }
 }
