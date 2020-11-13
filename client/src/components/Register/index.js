@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
+import { Button, Form, FormGroup, Input, Row, Col } from "reactstrap";
 
 class Register extends Component {
   constructor() {
@@ -13,7 +14,7 @@ class Register extends Component {
       email: "",
       password: "",
       password2: "",
-      errors: {}
+      errors: {},
     };
   }
 
@@ -27,23 +28,23 @@ class Register extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({
-        errors: nextProps.errors
+        errors: nextProps.errors,
       });
     }
   }
 
-  onChange = e => {
+  onChange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
   };
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
 
     const newUser = {
       name: this.state.name,
       email: this.state.email,
       password: this.state.password,
-      password2: this.state.password2
+      password2: this.state.password2,
     };
 
     this.props.registerUser(newUser, this.props.history);
@@ -53,13 +54,14 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
+
       <div className="container">
         <div className="row">
           <div className="col s8 offset-s2">
             <Link to="/" className="btn-flat waves-effect">
               Back to
               home
-            </Link>
+            </Link>            
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
               <h4>
                 <b>Register</b> below
@@ -68,97 +70,220 @@ class Register extends Component {
                 Already have an account? <Link to="/login">Log in</Link>
               </p>
             </div>
-            <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
-                <input
+            <Form noValidate onSubmit={this.onSubmit}>
+            <Row form>
+              <Col md={3}>
+                <FormGroup>
+                <Input
                   onChange={this.onChange}
                   value={this.state.name}
                   error={errors.name}
                   id="name"
                   type="text"
+                  placeholder="Name"
                   className={classnames("", {
                     invalid: errors.name
                   })}
                 />
-                <label htmlFor="name">Name</label>
                 <span className="red-text">{errors.name}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
+              </FormGroup>
+              <FormGroup>
+                <Input
                   onChange={this.onChange}
                   value={this.state.email}
                   error={errors.email}
                   id="email"
                   type="email"
+                  placeholder="Email"
                   className={classnames("", {
                     invalid: errors.email
                   })}
                 />
-                <label htmlFor="email">Email</label>
                 <span className="red-text">{errors.email}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
+              </FormGroup>
+              <FormGroup>
+                <Input
                   onChange={this.onChange}
                   value={this.state.password}
                   error={errors.password}
                   id="password"
                   type="password"
+                  placeholder="Password"
                   className={classnames("", {
                     invalid: errors.password
                   })}
                 />
-                <label htmlFor="password">Password</label>
                 <span className="red-text">{errors.password}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
+              </FormGroup>
+              <FormGroup>
+                <Input
                   onChange={this.onChange}
                   value={this.state.password2}
                   error={errors.password2}
                   id="password2"
                   type="password"
+                  placeholder="Confirm Password"
                   className={classnames("", {
                     invalid: errors.password2
                   })}
                 />
-                <label htmlFor="password2">Confirm Password</label>
                 <span className="red-text">{errors.password2}</span>
-              </div>
+              </FormGroup>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
-                  style={{
-                    width: "150px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem"
-                  }}
-                  type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                >
-                  Sign up
-                </button>
+                <Button type="submit">Sign up</Button>
               </div>
-            </form>
+              </Col>
+              </Row>
+            </Form>
           </div>
         </div>
+
+        <div class="translucent-form-overlay col-md-12">
+        <form
+          style={{
+            marginTop: "1rem",
+            marginRight: "1000px",
+            borderRadius: "25px",
+            backgroundColor: "rgba(54, 54, 54, 0.8)",
+            color: "white",
+            letterSpacing: "1.5px",
+            marginLeft: "50px",
+          }}
+        >
+          <div className="row">
+            <div
+              className="col s2 offset-s8"
+              style={{
+                color: "yellow",
+                textAlign: "center",
+                marginTop: "1rem",
+              }}
+            >
+              <Link
+                to="/"
+                className="btn-flat waves-effect"
+                style={{
+                  color: "white",
+                }}
+              >
+                Back to home
+              </Link>
+              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+                <h4>
+                  <b>Register</b>
+                </h4>
+              </div>
+              <Form
+                style={{ paddingLeft: "50px" }}
+                noValidate
+                onSubmit={this.onSubmit}
+              >
+                <Row form>
+                  <Col md={10}>
+                    <FormGroup>
+                      <Input
+                        onChange={this.onChange}
+                        value={this.state.name}
+                        error={errors.name}
+                        id="name"
+                        type="text"
+                        placeholder="Name"
+                        className={classnames("", {
+                          invalid: errors.name,
+                        })}
+                      />
+                      <span className="red-text">{errors.name}</span>
+                    </FormGroup>
+                    <FormGroup>
+                      <Input
+                        onChange={this.onChange}
+                        value={this.state.email}
+                        error={errors.email}
+                        id="email"
+                        type="email"
+                        placeholder="Email"
+                        className={classnames("", {
+                          invalid: errors.email,
+                        })}
+                      />
+                      <span className="red-text">{errors.email}</span>
+                    </FormGroup>
+                    <FormGroup>
+                      <Input
+                        onChange={this.onChange}
+                        value={this.state.password}
+                        error={errors.password}
+                        id="password"
+                        type="password"
+                        placeholder="Password"
+                        className={classnames("", {
+                          invalid: errors.password,
+                        })}
+                      />
+                      <span className="red-text">{errors.password}</span>
+                    </FormGroup>
+                    <FormGroup>
+                      <Input
+                        onChange={this.onChange}
+                        value={this.state.password2}
+                        error={errors.password2}
+                        id="password2"
+                        type="password"
+                        placeholder="Confirm Password"
+                        className={classnames("", {
+                          invalid: errors.password2,
+                        })}
+                      />
+                      <span className="red-text">{errors.password2}</span>
+                    </FormGroup>
+                    <div
+                      className="col s12"
+                      style={{ paddingLeft: "11.250px" }}
+                    >
+                      <Button
+                        type="submit translucent-form-overlay col-md-12"
+                        style={{
+                          color: "yellow",
+                          borderRadius: "25px",
+                          backgroundColor: "rgba(54, 54, 54, 0.8)",
+                          marginLeft: "100px",
+                        }}
+                      >
+                        Sign up
+                      </Button>
+                      <p className="grey-text text-darken-1">
+                        Already have an account?{" "}
+                        <Link
+                          to="/login"
+                          style={{
+                            color: "white",
+                          }}
+                        >
+                          Log in
+                        </Link>
+                      </p>
+                    </div>
+                  </Col>
+                </Row>
+              </Form>
+            </div>
+          </div>
+        </form>
+      </div>
       </div>
     );
-  }
-}
+  };
+};
 
 Register.propTypes = {
   registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
-  errors: state.errors
+  errors: state.errors,
 });
 
-export default connect(
-  mapStateToProps,
-  { registerUser }
-)(withRouter(Register));
+export default connect(mapStateToProps, { registerUser })(withRouter(Register));

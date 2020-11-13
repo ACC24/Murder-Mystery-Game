@@ -106,4 +106,35 @@ router.post("/login", (req, res) => {
   });
 });
 
+  //Update user's scores
+router.put("/scores", (req, res) => {
+  const name = req.body.name;
+  const score = req.body.highscores;
+  // check if the username already exists
+  User.findOne({ name })
+  .then(result => {
+    console.log(result);
+    const alreadyExisting = result;
+    if (alreadyExisting) {
+      // Update highscores
+      return User.updateOne({ name }, { $set: {highscores:score} } )
+      .then(() => {
+        console.log(`Player ${name} score updated to ${score}`);
+        res.send({ status: true, msg: "player score updated" });
+      });
+  } else {
+      res.send({ status: false, msg: "player name not found" });
+  }
+  })
+  .catch(err => res.status(500).json(err));
+});
+
+router.get("/scores", (req, res) => {
+  User.find().sort({ highscores: -1 }).limit(5)
+      .then ( result => {
+        res.send(result);
+      })
+      .catch(err => res.status(500).json(err));
+});
+
 module.exports = router;

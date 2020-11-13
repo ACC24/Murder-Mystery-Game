@@ -1,15 +1,16 @@
 import React, { Component } from "react";
+import { Button } from "reactstrap";
 import "./Garden.css"
 
 class Garden extends Component {
   onNextClick = e => {
     e.preventDefault();
-    this.props.history.push("/scoreboard");
+    this.props.history.push("/bedroom");
   };
     render() {
       return (
         <div>
-          <button onClick={this.onNextClick}>Next </button>
+          <Button onClick={this.onNextClick}>Next </Button>
         </div>
       );
     }

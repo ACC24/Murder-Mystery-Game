@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import "./Library.css"
+import "./Library.css";
+import { Button } from "reactstrap";
 
 class Library extends Component {
   onNextClick = e => {
@@ -8,8 +9,8 @@ class Library extends Component {
   };
     render() {
       return (
-        <div>
-          <button onClick={this.onNextClick}>Next </button>
+        <div id= "lib">
+          <Button onClick={this.onNextClick}>Next </Button>
         </div>
       );
     }

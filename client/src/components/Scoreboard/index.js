@@ -2,9 +2,26 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-// import "./Scoreboard.css"
+import { Button, ListGroup, ListGroupItem, Row, Col } from "reactstrap";
+import axios from "axios";
+import "./Scoreboard.css"
 
 class Scoreboard extends Component {
+  constructor() {
+    super();
+    this.state = {
+     data: []
+    };
+  }
+
+  componentDidMount() {
+    axios.get("/api/users/scores").then(res => {
+      this.setState({
+        data: res.data
+      });
+    });
+  }
+
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
@@ -17,29 +34,22 @@ class Scoreboard extends Component {
 
   render() {
     return (
+      <div id="sb">
       <div className="container">
-        <div className="row">
-          <div className="landing-copy col s12 center-align">
-            <h4 className="flow-text grey-text text-darken-1">
-              High Scores
-              </h4>
-              <ul>
-                <li>Placeholder item</li>
-                </ul>
-            <button
-              onClick={this.onLogoutClick}
-              className="btn btn-large"
-            >
-              Logout
-            </button>
-            <button
-              onClick={this.onRestartClick}
-              className="btn btn-large"
-            >
-              Restart
-            </button>
-          </div>
-        </div>
+        <h4 className="flow-text grey-text text-darken-1">High Scores</h4>
+        <Row>
+          <Col md={6}>
+          {this.state.data.map((data, i) => 
+            <ListGroup key={i}>
+              <ListGroupItem>{data.name} {data.highscores}</ListGroupItem>
+                    
+            </ListGroup>
+            )}
+            <Button onClick={this.onLogoutClick}>Logout</Button>
+            <Button onClick={this.onRestartClick}>Restart</Button>
+          </Col>
+        </Row>
+      </div>
       </div>
     );
   }

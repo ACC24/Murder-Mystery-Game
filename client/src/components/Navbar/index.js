@@ -1,26 +1,76 @@
+import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Navbar } from "reactstrap";
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import Timer from 'react-compound-timer';
 
-class Navbar extends Component {
+class Nav extends Component {
+  state = {
+    modal: false,
+    name: ""
+  };
+
+  toggle = () => {
+    this.setState({
+      modal: !this.state.modal
+    });
+  };
+
+  onChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+
+
+
+    this.toggle();
+  }
+
   render() {
     return (
-      <div className="navbar-fixed">
-        <nav className="z-depth-0">
-          <div className="nav-wrapper white">
-            <Link
-              to="/"
-              style={{
-                fontFamily: "monospace"
-              }}
-              className="col s5 brand-logo center black-text"
+      <div >
+        <Navbar>
+          <div>
+            <Button  onClick={this.toggle}>Guess who did it</Button>
+            <Modal
+              isOpen={this.state.modal}
+              toggle={this.toggle}
             >
-              Muder Mystery
-            </Link>
+              <ModalHeader toggle={this.toggle}>Who do you think is the killer?</ModalHeader>
+              <ModalBody>
+                <Form onSubmit={this.onSubmit}>
+                  <FormGroup>
+                   <Input
+                    type="text"
+                    name="name"
+                    placeholder="name the killer"
+                    onChange={this.onChange}
+                    />
+                    <Button>Submit</Button>
+                  </FormGroup>
+                </Form>
+              </ModalBody>
+            </Modal>
           </div>
-        </nav>
+          <div className="timer">
+            <Timer
+              initialTime={30000}
+              startImmediately={true}
+              direction="backward"
+              on
+            >
+              {() => (
+                <React.Fragment>
+                  <Timer.Minutes />  minutes
+                  <Timer.Seconds />  seconds
+                </React.Fragment>
+              )}
+            </Timer>
+          </div>
+        </Navbar>
       </div>
     );
   }
 }
 
-export default Navbar;
+export default Nav;

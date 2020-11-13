@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import "./Kitchen.css"
+import "./Kitchen.css";
+import { Button } from "reactstrap";
+
 
 class Kitchen extends Component {
   onNextClick = e => {
@@ -8,8 +10,8 @@ class Kitchen extends Component {
   };
     render() {
       return (
-        <div>
-          <button onClick={this.onNextClick}>Next </button>
+        <div id="kit">
+          <Button onClick={this.onNextClick}>Next</Button>
         </div>
       );
     }
