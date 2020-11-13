@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
 import { Button, Form, FormGroup, Input, Row, Col } from "reactstrap";
+import "./Register.css"
 
 class Register extends Component {
   constructor() {
@@ -55,91 +56,8 @@ class Register extends Component {
 
     return (
 
-      <div className="container">
-        <div className="row">
-          <div className="col s8 offset-s2">
-            <Link to="/" className="btn-flat waves-effect">
-              Back to
-              home
-            </Link>            
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <h4>
-                <b>Register</b> below
-              </h4>
-              <p className="grey-text text-darken-1">
-                Already have an account? <Link to="/login">Log in</Link>
-              </p>
-            </div>
-            <Form noValidate onSubmit={this.onSubmit}>
-            <Row form>
-              <Col md={3}>
-                <FormGroup>
-                <Input
-                  onChange={this.onChange}
-                  value={this.state.name}
-                  error={errors.name}
-                  id="name"
-                  type="text"
-                  placeholder="Name"
-                  className={classnames("", {
-                    invalid: errors.name
-                  })}
-                />
-                <span className="red-text">{errors.name}</span>
-              </FormGroup>
-              <FormGroup>
-                <Input
-                  onChange={this.onChange}
-                  value={this.state.email}
-                  error={errors.email}
-                  id="email"
-                  type="email"
-                  placeholder="Email"
-                  className={classnames("", {
-                    invalid: errors.email
-                  })}
-                />
-                <span className="red-text">{errors.email}</span>
-              </FormGroup>
-              <FormGroup>
-                <Input
-                  onChange={this.onChange}
-                  value={this.state.password}
-                  error={errors.password}
-                  id="password"
-                  type="password"
-                  placeholder="Password"
-                  className={classnames("", {
-                    invalid: errors.password
-                  })}
-                />
-                <span className="red-text">{errors.password}</span>
-              </FormGroup>
-              <FormGroup>
-                <Input
-                  onChange={this.onChange}
-                  value={this.state.password2}
-                  error={errors.password2}
-                  id="password2"
-                  type="password"
-                  placeholder="Confirm Password"
-                  className={classnames("", {
-                    invalid: errors.password2
-                  })}
-                />
-                <span className="red-text">{errors.password2}</span>
-              </FormGroup>
-              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <Button type="submit">Sign up</Button>
-              </div>
-              </Col>
-              </Row>
-            </Form>
-          </div>
-        </div>
-
-        <div class="translucent-form-overlay col-md-12">
-        <form
+      <div id="reg" className="container translucent-form-overlay col-md-12 ">
+        <div
           style={{
             marginTop: "1rem",
             marginRight: "1000px",
@@ -151,35 +69,26 @@ class Register extends Component {
           }}
         >
           <div className="row">
-            <div
-              className="col s2 offset-s8"
-              style={{
-                color: "yellow",
-                textAlign: "center",
-                marginTop: "1rem",
-              }}
-            >
-              <Link
-                to="/"
-                className="btn-flat waves-effect"
-                style={{
-                  color: "white",
-                }}
-              >
-                Back to home
-              </Link>
-              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <h4>
-                  <b>Register</b>
-                </h4>
-              </div>
-              <Form
-                style={{ paddingLeft: "50px" }}
-                noValidate
-                onSubmit={this.onSubmit}
-              >
+            <div className="col s12 offset-s8">
+              <Form noValidate onSubmit={this.onSubmit}
+                style={{ paddingLeft: "50px" }}>
                 <Row form>
                   <Col md={10}>
+                    <Link to="/" className="btn-flat waves-effect"
+                      style={{
+                        color: "white",
+                        marginLeft: "100px",
+                      }}>
+                      Back to
+                      home
+                </Link>
+                    <div className="col s12" style={{
+                      marginLeft: "70px",
+                    }}>
+                      <h4>
+                        <b>Register Here!</b>
+                      </h4>
+                    </div>
                     <FormGroup>
                       <Input
                         onChange={this.onChange}
@@ -189,7 +98,7 @@ class Register extends Component {
                         type="text"
                         placeholder="Name"
                         className={classnames("", {
-                          invalid: errors.name,
+                          invalid: errors.name
                         })}
                       />
                       <span className="red-text">{errors.name}</span>
@@ -203,7 +112,7 @@ class Register extends Component {
                         type="email"
                         placeholder="Email"
                         className={classnames("", {
-                          invalid: errors.email,
+                          invalid: errors.email
                         })}
                       />
                       <span className="red-text">{errors.email}</span>
@@ -217,7 +126,7 @@ class Register extends Component {
                         type="password"
                         placeholder="Password"
                         className={classnames("", {
-                          invalid: errors.password,
+                          invalid: errors.password
                         })}
                       />
                       <span className="red-text">{errors.password}</span>
@@ -231,36 +140,28 @@ class Register extends Component {
                         type="password"
                         placeholder="Confirm Password"
                         className={classnames("", {
-                          invalid: errors.password2,
+                          invalid: errors.password2
                         })}
                       />
                       <span className="red-text">{errors.password2}</span>
                     </FormGroup>
-                    <div
-                      className="col s12"
-                      style={{ paddingLeft: "11.250px" }}
-                    >
-                      <Button
-                        type="submit translucent-form-overlay col-md-12"
+                    <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+                      <Button type="submit translucent-form-overlay col-md-12"
                         style={{
                           color: "yellow",
                           borderRadius: "25px",
                           backgroundColor: "rgba(54, 54, 54, 0.8)",
                           marginLeft: "100px",
-                        }}
-                      >
+                        }}>
                         Sign up
                       </Button>
                       <p className="grey-text text-darken-1">
-                        Already have an account?{" "}
-                        <Link
-                          to="/login"
-                          style={{
-                            color: "white",
-                          }}
-                        >
+                        Already have an account?
+                      <Link style={{
+                          color: "white",
+                        }} to="/login">
                           Log in
-                        </Link>
+                      </Link>
                       </p>
                     </div>
                   </Col>
@@ -268,8 +169,7 @@ class Register extends Component {
               </Form>
             </div>
           </div>
-        </form>
-      </div>
+        </div>
       </div>
     );
   };
