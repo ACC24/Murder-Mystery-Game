@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Button } from "reactstrap";
-// import { logoutUser } from "../../actions/authActions";
 // import "./Gameboard.css";
 import shuffle from "../../utils/shuffle"
 
@@ -56,8 +55,7 @@ class Gameboard extends Component {
 }
 
 Gameboard.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+    auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
