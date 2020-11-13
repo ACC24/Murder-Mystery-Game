@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { Button, ListGroup, ListGroupItem, Row, Col } from "reactstrap";
 import axios from "axios";
-// import "./Scoreboard.css"
+import "./Scoreboard.css"
 
 class Scoreboard extends Component {
   constructor() {
@@ -34,6 +34,7 @@ class Scoreboard extends Component {
 
   render() {
     return (
+      <div id="sb">
       <div className="container">
         <h4 className="flow-text grey-text text-darken-1">High Scores</h4>
         <Row>
@@ -48,6 +49,7 @@ class Scoreboard extends Component {
             <Button onClick={this.onRestartClick}>Restart</Button>
           </Col>
         </Row>
+      </div>
       </div>
     );
   }

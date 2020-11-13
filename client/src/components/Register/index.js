@@ -135,8 +135,10 @@ class Register extends Component {
               </Col>
               </Row>
             </Form>
+          </div>
+        </div>
 
-      <div class="translucent-form-overlay col-md-12">
+        <div class="translucent-form-overlay col-md-12">
         <form
           style={{
             marginTop: "1rem",
@@ -268,9 +270,10 @@ class Register extends Component {
           </div>
         </form>
       </div>
+      </div>
     );
-  }
-}
+  };
+};
 
 Register.propTypes = {
   registerUser: PropTypes.func.isRequired,

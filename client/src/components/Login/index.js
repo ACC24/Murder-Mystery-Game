@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
 import { Button, Form, FormGroup, Input, Row, Col } from "reactstrap";
+import "./Login.css"
 
 class Login extends Component {
   constructor() {
@@ -54,6 +55,7 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
+      <div id="log">
       <div className="translucent-form-overlay col-md-12">
         <div
           style={{
@@ -132,6 +134,7 @@ class Login extends Component {
             </Form>
           </div>
         </div>
+      </div>
       </div>
     );
   }
