@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Landing.css";
-import { Button, Navbar, Jumbotron, Container } from "reactstrap";
+import { Button, Navbar } from "reactstrap";
 
 class Landing extends Component {
   onRegisterClick = (e) => {
