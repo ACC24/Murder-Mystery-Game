@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Button } from "reactstrap";
-// import "./Gameboard.css";
+import "./Gameboard.css";
 import shuffle from "../../utils/shuffle"
 
 
@@ -37,7 +37,7 @@ class Gameboard extends Component {
     const { user } = this.props.auth;
 
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
+      <div id = "gb">
         <div className="row">
           <div className="landing-copy col s12 center-align">
             <h4>

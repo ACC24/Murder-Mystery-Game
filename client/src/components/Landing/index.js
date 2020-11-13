@@ -15,6 +15,7 @@ class Landing extends Component {
 
   render() {
     return (
+      <div id="land">
       <Navbar
         className="container translucent-form-overlay col-md-12 justify-content-start"
         style={{ width: "100%" }}
@@ -59,6 +60,7 @@ class Landing extends Component {
           </h1>
         </div>
       </Navbar>
+      </div>
     );
   }
 }

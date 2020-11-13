@@ -1,0 +1,8 @@
+#gb {
+    background-image: url(../../assets/images/house.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+  }
+  
