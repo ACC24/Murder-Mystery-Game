@@ -1,6 +1,7 @@
 import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Navbar } from "reactstrap";
 import React, { Component } from "react";
 import Timer from 'react-compound-timer';
+import "./Navbar.css"
 
 class Nav extends Component {
   state = {
@@ -28,7 +29,7 @@ class Nav extends Component {
 
   render() {
     return (
-      <div >
+      <div id="nav" >
         <Navbar>
           <div>
             <Button  onClick={this.toggle}>Guess who did it</Button>
