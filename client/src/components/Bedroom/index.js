@@ -4,15 +4,23 @@ import { Button } from "reactstrap";
 
 
 class Bedroom extends Component {
+  onPreviousClick = e => {
+    e.preventDefault();
+    this.props.history.goBack();
+  };
+  
   onNextClick = e => {
     e.preventDefault();
     this.props.history.push("/kitchen");
   };
+
     render() {
       return (
         <div id ="bed">
-          <Button onClick={this.onNextClick}>Next</Button>
+          <Button id="prev" onClick={this.onPreviousClick}>&#8249;</Button>
+          <Button id="next" onClick={this.onNextClick}>&#8250;</Button>
         </div>
+        
       );
     }
   }
