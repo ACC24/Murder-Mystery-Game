@@ -9,7 +9,7 @@ class Garden extends Component {
   };
     render() {
       return (
-        <div>
+        <div id="gard">
           <Button onClick={this.onNextClick}>Next </Button>
         </div>
       );

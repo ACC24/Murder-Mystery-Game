@@ -1,0 +1,8 @@
+#gard {
+    background-image: url(../../assets/images/garden.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+  }
+  
