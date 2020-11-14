@@ -3,18 +3,18 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Button } from "reactstrap";
 import "./Gameboard.css";
-import shuffle from "../../utils/shuffle"
+// import shuffle from "../../utils/shuffle"
 
 
 class Gameboard extends Component {
   onStartClick = e => {
     e.preventDefault();
     
-    const killer = ["Butler", "Cook", "Gardener", "Wife"];
-    shuffle(killer);
-    console.log(killer);
+    const killer = "Wife";
+    // shuffle(killer);
+    // console.log(killer);
     
-    const gameStart = shuffle(killer)[0];
+    const gameStart = killer;
     switch (gameStart) {
       case 'Butler':
         this.props.history.push("/library")

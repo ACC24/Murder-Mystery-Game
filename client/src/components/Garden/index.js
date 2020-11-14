@@ -8,15 +8,11 @@ class Garden extends Component {
     this.props.history.push("/library");
   };
   
-  onNextClick = e => {
-    e.preventDefault();
-    this.props.history.push("/bedroom");
-  };
     render() {
       return (
-        <div>
+        <div id ="gard">
            <Button id="prev" onClick={this.onPreviousClick}>&#8249;</Button>
-          <Button id="next" onClick={this.onNextClick}>&#8250;</Button>
+          
         </div>
       );
     }
