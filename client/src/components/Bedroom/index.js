@@ -4,6 +4,7 @@ import ImageMapper from 'react-image-mapper';
 import bedroomPic from "../../assets/images/bedroom.jpg"
 console.log(bedroomPic);
 
+
 class Bedroom extends Component {
   state = { 
     hoveredArea: null, 
@@ -25,13 +26,10 @@ class Bedroom extends Component {
     disabled: true
   };
 
-  onNextClick = e => {
-    e.preventDefault();
-    this.props.history.push("/kitchen");
-  };
 	load() {
 		this.setState({ msg: "Interact with image !" });
-	};
+  };
+  
 	clicked(area) {
 		this.setState({
 			msg: `You clicked on ${area.shape} at coords ${JSON.stringify(
@@ -39,9 +37,11 @@ class Bedroom extends Component {
 			)} !`
 		});
   };
+
   getTipPosition(area) {
 		return { top: `${area.center[1]}px`, left: `${area.center[0]}px` };
   };
+
   render() {
     return (
       <>
