@@ -58,7 +58,6 @@ class Nav extends Component {
               initialTime={30000}
               startImmediately={true}
               direction="backward"
-              on
             >
               {() => (
                 <React.Fragment>
