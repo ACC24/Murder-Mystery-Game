@@ -6,7 +6,7 @@ import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
 import { Button, Form, FormGroup, Input, Row, Col } from "reactstrap";
 import "./Login.css";
-
+import Example from "../Title";
 class Login extends Component {
   constructor() {
     super();
@@ -56,6 +56,7 @@ class Login extends Component {
 
     return (
       <div id="log">
+        <Example></Example>
         <div className="translucent-form-overlay col-md-12">
           <div
             style={{
