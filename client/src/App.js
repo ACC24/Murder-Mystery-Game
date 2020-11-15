@@ -50,10 +50,10 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <PrivateRoute exact path={ ["/bedroom", "/kitchen", "/library", "/garden"] }component={Nav} />
+            <PrivateRoute exact path={["/bedroom", "/kitchen", "/library", "/garden"]} component={Nav} />
             <Switch>
               <PrivateRoute exact path="/gameboard" component={Gameboard} />
-               <PrivateRoute exact path="/bedroom" component={Bedroom} />
+              <PrivateRoute exact path="/bedroom" component={Bedroom} />
               <PrivateRoute exact path="/kitchen" component={Kitchen} />
               <PrivateRoute exact path="/library" component={Library} />
               <PrivateRoute exact path="/garden" component={Garden} />

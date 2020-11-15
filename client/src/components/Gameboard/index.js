@@ -7,30 +7,32 @@ import "./Gameboard.css";
 
 
 class Gameboard extends Component {
+
   onStartClick = e => {
     e.preventDefault();
+    this.props.history.push("/bedroom")
     
-    const killer = "Wife";
+    // const killer = ["Butler", "Cook", "Gardener", "Wife"];
     // shuffle(killer);
     // console.log(killer);
     
-    const gameStart = killer;
-    switch (gameStart) {
-      case 'Butler':
-        this.props.history.push("/library")
-        break;
-      case 'Cook':
-        this.props.history.push("/kitchen")
-        break;
-      case 'Gardener':
-        this.props.history.push("/garden")
-        break;
-      case 'Wife':
-        this.props.history.push("/bedroom")
-        break;
-      default:
-        this.props.history.push("/gameboard");
-    }
+    // const gameStart = shuffle(killer)[0];
+    // switch (gameStart) {
+    //   case 'Butler':
+    //     this.props.history.push("/library")
+    //     break;
+    //   case 'Cook':
+    //     this.props.history.push("/kitchen")
+    //     break;
+    //   case 'Gardener':
+    //     this.props.history.push("/garden")
+    //     break;
+    //   case 'Wife':
+    //     this.props.history.push("/bedroom")
+    //     break;
+    //   default:
+    //     this.props.history.push("/gameboard");
+    // }
   };
 
   render() {

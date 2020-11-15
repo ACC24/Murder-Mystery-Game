@@ -1,3 +1,23 @@
-/* #nav {
+#nav {
     background: gray;
-} */
+}
+
+#prev {
+    background-color: transparent;
+    border: none;
+    font-size: 35px;
+    color: black;
+    /* position: absolute;
+    left: 0;
+    bottom: 50% */
+  }
+  
+  #next {
+    background-color: transparent;
+    border: none;
+    font-size: 35px;
+    color: black;
+    /* position: absolute;
+    right: 0;
+    bottom: 50% */
+  }
