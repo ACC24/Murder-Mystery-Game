@@ -45,7 +45,7 @@ class Garden extends Component {
     return (
       <>
         <div className="room-container">
-            <ImageMapper classsName="image-mapper" src={gardenPic} map={this.state.map} width={1900}
+            <ImageMapper classsName="image-mapper" src={gardenPic} map={this.state.map} width={1450}
               onLoad={() => this.load()}
               onClick={area => this.clicked(area)}
             />

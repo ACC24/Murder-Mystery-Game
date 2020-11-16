@@ -90,87 +90,106 @@ class Nav extends Component {
   render() {
     return (
       <div id="nav">
-        \
         <div className="translucent-form-overlay col-md-12">
           <Navbar pills>
             <div>
-              <Button id="prev" onClick={this.onPreviousClick}>
-                &#8249;
+              <Button id="prev" onClick={this.onPreviousClick} style={{
+                borderColor: "yellow",
+                color: "yellow",
+                borderColor: "yellow",
+                backgroundColor: "rgba(54, 54, 54, 0.8)",
+                borderRadius: "25px",
+                marginBottom: "2rem",
+                paddingLeft: "25px",
+                paddingRight: "25px",
+                fontFamily: "Underdog, cursive",}}>
+              &#8249;
               </Button>
             </div>
-            <div type="translucent-form-overlay">
-              <Button
-                style={{
-                  color: "yellow",
-                  borderColor: "yellow",
-                  backgroundColor: "rgba(54, 54, 54, 0.8)",
-                  borderRadius: "25px",
-                  marginBottom: "1rem",
-                  fontFamily: "Underdog, cursive",
-                }}
-                onClick={this.toggle}
-              >
-                Who did it?
-              </Button>
-              <Modal
-                style={{
-                  fontFamily: "Underdog, cursive",
-                }}
-                isOpen={this.state.modal}
-                toggle={this.toggle}
-              >
-                <ModalHeader
-                  style={{ borderRadius: "25px" }}
-                  toggle={this.toggle}
-                >
-                  Who do you think is the killer?
-                </ModalHeader>
-                <ModalBody>
-                  <Form onSubmit={this.onSubmit}>
-                    <FormGroup>
-                      <Input
-                        type="text"
-                        name="name"
-                        placeholder="name the killer"
-                        onChange={this.onChange}
-                      />
-                      <Button
-                        style={{ borderRadius: "25px", marginLeft: "375px" }}
-                      >
-                        Submit
-                      </Button>
-                    </FormGroup>
-                  </Form>
-                </ModalBody>
-              </Modal>
-            </div>
-            <div
-              className="timer"
+          <div type="translucent-form-overlay">
+            <Button
               style={{
                 color: "yellow",
                 borderColor: "yellow",
                 backgroundColor: "rgba(54, 54, 54, 0.8)",
                 borderRadius: "25px",
-                marginBottom: "1rem",
+                marginBottom: "2rem",
                 paddingLeft: "25px",
                 paddingRight: "25px",
-                position: "right",
                 fontFamily: "Underdog, cursive",
               }}
+              onClick={this.toggle}
             >
-              Time remaining: {this.state.minutes}:
-              {this.state.seconds < 10
-                ? `0${this.state.seconds}`
-                : this.state.seconds}
-            </div>
-            <div>
-              <Button id="next" onClick={this.onNextClick}>
-                &#8250;
+              Who did it?
               </Button>
-            </div>
+            <Modal
+              style={{
+                fontFamily: "Underdog, cursive",
+              }}
+              isOpen={this.state.modal}
+              toggle={this.toggle}
+            >
+              <ModalHeader
+                style={{}}
+                toggle={this.toggle}
+              >
+                Who do you think is the killer?
+                </ModalHeader>
+              <ModalBody>
+                <Form onSubmit={this.onSubmit}>
+                  <FormGroup>
+                    <Input
+                      type="text"
+                      name="name"
+                      placeholder="name the killer"
+                      onChange={this.onChange}
+                    />
+                    <Button
+                      style={{ marginLeft: "360px" }}
+                    >
+                      Submit
+                      </Button>
+                  </FormGroup>
+                </Form>
+              </ModalBody>
+            </Modal>
+          </div>
+          <div
+            className="timer"
+            style={{
+              color: "yellow",
+              borderColor: "yellow",
+              backgroundColor: "rgba(54, 54, 54, 0.8)",
+              borderRadius: "25px",
+              marginBottom: "2rem",
+              paddingLeft: "25px",
+              paddingRight: "25px",
+              position: "right",
+              fontFamily: "Underdog, cursive",
+            }}
+          >
+            Time remaining: {this.state.minutes}:
+              {this.state.seconds < 10
+              ? `0${this.state.seconds}`
+              : this.state.seconds}
+          </div>
+          <div>
+            <Button id="next" onClick={this.onNextClick} style={{
+                borderColor: "yellow",
+                color: "yellow",
+                borderColor: "yellow",
+                backgroundColor: "rgba(54, 54, 54, 0.8)",
+                borderRadius: "25px",
+                marginBottom: "2rem",
+                paddingLeft: "25px",
+                paddingRight: "25px",
+                fontFamily: "Underdog, cursive",}}>
+              &#8250;
+              </Button>
+          </div>
           </Navbar>
-        </div>
       </div>
+      </div >
     );
   }
 }
