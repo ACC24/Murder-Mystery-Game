@@ -1,0 +1,33 @@
+.room-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw ;
+    background-color: rgb(49, 48, 48);
+}
+
+/* #prev {
+    background-color: transparent;
+    border: none;
+    font-size: 80px;
+    color: black;
+    position: absolute;
+    left: 0;
+    bottom: 50%
+  } */
+  
+  /* #next {
+    background-color: transparent;
+    border: none;
+    font-size: 80px;
+    color: black;
+    position: absolute;
+    right: 0;
+    bottom: 50%
+  } */
+
+  /* .buttons {
+      display: flex;
+      justify-content: center;
+      width: 100vw;
+  } */

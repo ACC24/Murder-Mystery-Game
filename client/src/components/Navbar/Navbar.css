@@ -1,23 +1,26 @@
 #nav {
   background: rgba(54, 54, 54, 0.8);
+  height: 50px;
+  display: flex;
+  align-self: baseline;
+  width: 100vw ;
+
 }
 
 #prev {
   background-color: transparent;
-  border: none;
   font-size: 35px;
-  color: black;
-  /* position: absolute;
-    left: 0;
-    bottom: 50% */
+  height: 50px;
+  color: yellow;
+  font-family: "Underdog, cursive";
+
 }
 
 #next {
   background-color: transparent;
-  border: none;
   font-size: 35px;
-  color: black;
-  /* position: absolute;
-    right: 0;
-    bottom: 50% */
+  height: 50px;
+  color: yellow;
+  font-family: "Underdog, cursive";
+
 }

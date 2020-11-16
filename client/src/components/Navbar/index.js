@@ -90,12 +90,14 @@ class Nav extends Component {
   render() {
     return (
       <div id="nav">
-        \
         <div className="translucent-form-overlay col-md-12">
           <Navbar pills>
             <div>
-              <Button id="prev" onClick={this.onPreviousClick}>
-                &#8249;
+              <Button id="prev" onClick={this.onPreviousClick} style ={{borderColor: "yellow",
+                backgroundColor: "rgba(54, 54, 54, 0.8)",
+                borderRadius: "25px",
+                marginBottom: "1rem",}}>
+              &#8249;
               </Button>
             </div>
             <div type="translucent-form-overlay">
@@ -105,7 +107,9 @@ class Nav extends Component {
                   borderColor: "yellow",
                   backgroundColor: "rgba(54, 54, 54, 0.8)",
                   borderRadius: "25px",
-                  marginBottom: "1rem",
+                  marginBottom: "2rem",
+                  paddingLeft: "25px",
+                  paddingRight: "25px",
                   fontFamily: "Underdog, cursive",
                 }}
                 onClick={this.toggle}
@@ -120,7 +124,7 @@ class Nav extends Component {
                 toggle={this.toggle}
               >
                 <ModalHeader
-                  style={{ borderRadius: "25px" }}
+                  style={{ }}
                   toggle={this.toggle}
                 >
                   Who do you think is the killer?
@@ -135,7 +139,7 @@ class Nav extends Component {
                         onChange={this.onChange}
                       />
                       <Button
-                        style={{ borderRadius: "25px", marginLeft: "375px" }}
+                        style={{ marginLeft: "360px" }}
                       >
                         Submit
                       </Button>
@@ -151,7 +155,7 @@ class Nav extends Component {
                 borderColor: "yellow",
                 backgroundColor: "rgba(54, 54, 54, 0.8)",
                 borderRadius: "25px",
-                marginBottom: "1rem",
+                marginBottom: "2rem",
                 paddingLeft: "25px",
                 paddingRight: "25px",
                 position: "right",
@@ -164,7 +168,10 @@ class Nav extends Component {
                 : this.state.seconds}
             </div>
             <div>
-              <Button id="next" onClick={this.onNextClick}>
+              <Button id="next" onClick={this.onNextClick} style ={{borderColor: "yellow",
+                backgroundColor: "rgba(54, 54, 54, 0.8)",
+                borderRadius: "25px",
+                marginBottom: "1rem",}}>
                 &#8250;
               </Button>
             </div>
