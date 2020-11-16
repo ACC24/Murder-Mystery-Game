@@ -1,3 +1,23 @@
-/* #nav {
-    background: gray;
-} */
+#nav {
+  background: rgba(54, 54, 54, 0.8);
+}
+
+#prev {
+  background-color: transparent;
+  border: none;
+  font-size: 35px;
+  color: black;
+  /* position: absolute;
+    left: 0;
+    bottom: 50% */
+}
+
+#next {
+  background-color: transparent;
+  border: none;
+  font-size: 35px;
+  color: black;
+  /* position: absolute;
+    right: 0;
+    bottom: 50% */
+}

@@ -1,27 +1,7 @@
-#lib {
+/* #lib {
     background-image: url(../../assets/images/library.jpg);
     background-repeat: repeat;
     background-size: cover;
     background-position: center center;
     height: 100vh;
-  }
-
-#prev {
-  background-color: transparent;
-  border: none;
-  font-size: 80px;
-  color: black;
-  position: absolute;
-  left: 0;
-  bottom: 50%
-}
-
-#next {
-  background-color: transparent;
-  border: none;
-  font-size: 80px;
-  color: black;
-  position: absolute;
-  right: 0;
-  bottom: 50%
-}
+  } */

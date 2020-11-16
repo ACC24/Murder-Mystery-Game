@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
 import { Button, Form, FormGroup, Input, Row, Col } from "reactstrap";
-import "./Register.css"
+import "./Register.css";
 
 class Register extends Component {
   constructor() {
@@ -55,7 +55,6 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-
       <div id="reg" className="container translucent-form-overlay col-md-12 ">
         <div
           style={{
@@ -70,22 +69,31 @@ class Register extends Component {
         >
           <div className="row">
             <div className="col s12 offset-s8">
-              <Form noValidate onSubmit={this.onSubmit}
-                style={{ paddingLeft: "50px" }}>
+              <Form
+                noValidate
+                onSubmit={this.onSubmit}
+                style={{ paddingLeft: "50px" }}
+              >
                 <Row form>
                   <Col md={10}>
-                    <Link to="/" className="btn-flat waves-effect"
+                    <Link
+                      to="/"
+                      className="btn-flat waves-effect"
                       style={{
-                        color: "white",
-                        marginLeft: "100px",
-                      }}>
-                      Back to
-                      home
-                </Link>
-                    <div className="col s12" style={{
-                      marginLeft: "70px",
-                    }}>
-                      <h4>
+                        color: "yellow",
+                        textAlign: "center",
+                        paddingLeft: "65px",
+                      }}
+                    >
+                      Back to home
+                    </Link>
+                    <div
+                      className="col s12"
+                      style={{
+                        textAlign: "center",
+                      }}
+                    >
+                      <h4 style={{ textAlign: "center" }}>
                         <b>Register Here!</b>
                       </h4>
                     </div>
@@ -98,7 +106,7 @@ class Register extends Component {
                         type="text"
                         placeholder="Name"
                         className={classnames("", {
-                          invalid: errors.name
+                          invalid: errors.name,
                         })}
                       />
                       <span className="red-text">{errors.name}</span>
@@ -112,7 +120,7 @@ class Register extends Component {
                         type="email"
                         placeholder="Email"
                         className={classnames("", {
-                          invalid: errors.email
+                          invalid: errors.email,
                         })}
                       />
                       <span className="red-text">{errors.email}</span>
@@ -126,7 +134,7 @@ class Register extends Component {
                         type="password"
                         placeholder="Password"
                         className={classnames("", {
-                          invalid: errors.password
+                          invalid: errors.password,
                         })}
                       />
                       <span className="red-text">{errors.password}</span>
@@ -140,28 +148,39 @@ class Register extends Component {
                         type="password"
                         placeholder="Confirm Password"
                         className={classnames("", {
-                          invalid: errors.password2
+                          invalid: errors.password2,
                         })}
                       />
                       <span className="red-text">{errors.password2}</span>
                     </FormGroup>
-                    <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                      <Button type="submit translucent-form-overlay col-md-12"
+                    <div
+                      className="col s12"
+                      style={{ textAlign: "right", paddingLeft: "0px" }}
+                    >
+                      <Button
+                        type="submit translucent-form-overlay col-md-12"
                         style={{
                           color: "yellow",
                           borderRadius: "25px",
                           backgroundColor: "rgba(54, 54, 54, 0.8)",
-                          marginLeft: "100px",
-                        }}>
+                        }}
+                      >
                         Sign up
                       </Button>
                       <p className="grey-text text-darken-1">
                         Already have an account?
-                      <Link style={{
-                          color: "white",
-                        }} to="/login">
+                        <Link
+                          style={{
+                            color: "yellow",
+                            borderColor: "yellow",
+                            backgroundColor: "rgba(54, 54, 54, 0.8)",
+                            borderRadius: "25px",
+                            marginBottom: "1rem",
+                          }}
+                          to="/login"
+                        >
                           Log in
-                      </Link>
+                        </Link>
                       </p>
                     </div>
                   </Col>
@@ -171,9 +190,9 @@ class Register extends Component {
           </div>
         </div>
       </div>
-   );
-  };
-};
+    );
+  }
+}
 
 Register.propTypes = {
   registerUser: PropTypes.func.isRequired,
