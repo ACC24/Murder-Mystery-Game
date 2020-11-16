@@ -4,30 +4,30 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { Button, ListGroup, ListGroupItem, Row, Col } from "reactstrap";
 import axios from "axios";
-import "./Scoreboard.css"
+import "./Scoreboard.css";
 
 class Scoreboard extends Component {
   constructor() {
     super();
     this.state = {
-     data: []
+      data: [],
     };
   }
 
   componentDidMount() {
-    axios.get("/api/users/scores").then(res => {
+    axios.get("/api/users/scores").then((res) => {
       this.setState({
-        data: res.data
+        data: res.data,
       });
     });
   }
 
-  onLogoutClick = e => {
+  onLogoutClick = (e) => {
     e.preventDefault();
     this.props.logoutUser();
   };
 
-  onRestartClick = e => {
+  onRestartClick = (e) => {
     e.preventDefault();
     this.props.history.push("/gameboard");
   };
@@ -35,21 +35,66 @@ class Scoreboard extends Component {
   render() {
     return (
       <div id="sb">
-      <div className="container">
-        <h4 className="flow-text grey-text text-darken-1">High Scores</h4>
-        <Row>
-          <Col md={6}>
-          {this.state.data.map((data, i) => 
-            <ListGroup key={i}>
-              <ListGroupItem>{data.name} {data.highscores}</ListGroupItem>
-                    
-            </ListGroup>
-            )}
-            <Button onClick={this.onLogoutClick}>Logout</Button>
-            <Button onClick={this.onRestartClick}>Restart</Button>
-          </Col>
-        </Row>
-      </div>
+        <div className="translucent-form-overlay col-md-12">
+          <div
+            style={{
+              marginTop: "1rem",
+              marginRight: "1000px",
+              borderRadius: "25px",
+              backgroundColor: "rgba(54, 54, 54, 0.8)",
+              color: "gray",
+              letterSpacing: "1.5px",
+              marginLeft: "70px",
+              fontFamily: "Underdog, cursive",
+            }}
+            className="row"
+          >
+            <div className="container">
+              <h4
+                className="flow-text grey-text text-darken-1"
+                style={{ color: "yellow", textAlign: "center" }}
+              >
+                High Scores
+              </h4>
+              <Row>
+                <Col
+                  style={{
+                    textAlign: "left",
+                    marginRight: "50px",
+                    marginLeft: "30px",
+                  }}
+                  md={10}
+                >
+                  {this.state.data.map((data, i) => (
+                    <ListGroup key={i}>
+                      <ListGroupItem>
+                        {data.name} {data.highscores}
+                      </ListGroupItem>
+                    </ListGroup>
+                  ))}
+                  <Button
+                    style={{
+                      borderRadius: "25px",
+                      color: "yellow",
+                    }}
+                    onClick={this.onLogoutClick}
+                  >
+                    Logout
+                  </Button>
+                  <Button
+                    style={{
+                      borderRadius: "25px",
+                      color: "yellow",
+                    }}
+                    onClick={this.onRestartClick}
+                  >
+                    Restart
+                  </Button>
+                </Col>
+              </Row>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -57,14 +102,11 @@ class Scoreboard extends Component {
 
 Scoreboard.propTypes = {
   logoutUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  auth: state.auth
+const mapStateToProps = (state) => ({
+  auth: state.auth,
 });
 
-export default connect(
-  mapStateToProps,
-  { logoutUser }
-)(Scoreboard);
+export default connect(mapStateToProps, { logoutUser })(Scoreboard);
