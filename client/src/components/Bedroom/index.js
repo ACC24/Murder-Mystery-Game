@@ -45,8 +45,8 @@ class Bedroom extends Component {
   render() {
     return (
       <>
-        <div className="room-container">
-            <ImageMapper classsName="image-mapper" src={bedroomPic} map={this.state.map}
+        <div id="bed" className="room-container">
+            <ImageMapper classsName="image-mapper" src={bedroomPic} map={this.state.map} width={1450}
               onLoad={() => this.load()}
               onClick={area => this.clicked(area)}
             />
