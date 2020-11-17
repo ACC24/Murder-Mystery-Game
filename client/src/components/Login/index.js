@@ -57,7 +57,7 @@ class Login extends Component {
         <div className="translucent-form-overlay col-md-12">
           <div
             style={{
-              marginTop: "1rem",
+              marginTop: "25px",
               marginRight: "1000px",
               borderRadius: "25px",
               backgroundColor: "rgba(54, 54, 54, 0.8)",
