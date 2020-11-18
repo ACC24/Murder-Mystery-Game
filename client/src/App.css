@@ -6,6 +6,10 @@
     background-color: rgb(49, 48, 48);
 }
 
+.poly{
+  background-color: transparent;
+}
+
 /* #prev {
     background-color: transparent;
     border: none;
