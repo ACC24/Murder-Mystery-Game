@@ -39,10 +39,10 @@ class Gameboard extends Component {
     return (
       <div id="gb">
         <div className="row">
-          <div className="translucent-form-overlay col-md-12">
+          <div className="translucent-form-overlay col-md-12" >
             <h4
               style={{
-                marginTop: "1rem",
+                marginTop: "50px",
                 marginRight: "1000px",
                 borderRadius: "25px",
                 backgroundColor: "rgba(54, 54, 54, 0.8)",
