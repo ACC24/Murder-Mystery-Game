@@ -28,7 +28,6 @@ class Scoreboard extends Component {
   };
 
   onRestartClick = (e) => {
-    e.preventDefault();
     this.props.history.push("/gameboard");
   };
 
