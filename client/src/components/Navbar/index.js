@@ -13,14 +13,15 @@ import "./Navbar.css";
 import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { setUserInput} from "../../actions/inputActions";
 import "../Navbar/Navbar.css";
 
 class Nav extends Component {
   state = {
     modal: false,
     name: "",
-    minutes: 15,
-    seconds: 0,
+    minutes: 0,
+    seconds: 10,
   };
 
   componentDidMount() {
@@ -34,6 +35,8 @@ class Nav extends Component {
       if (seconds === 0) {
         if (minutes === 0) {
           clearInterval(this.myInterval); 
+          this.Score();
+          this.props.history.push("/gameover?timeExpired=Y")
         } else {
           this.setState(({ minutes }) => ({
             minutes: minutes - 1,
@@ -58,13 +61,10 @@ class Nav extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onSubmit = (e) => {
-    e.preventDefault();
-    const { minutes, seconds, name } = this.state;
-    const score = 60 * minutes + seconds;
+  Score = () => {
+    const { minutes, seconds } = this.state;
+    const score = 60 * (minutes + seconds);
     const { user } = this.props.auth;
-    console.log(name);
-
     axios
       .put("/api/users/scores", {
         name: user.name.split(" ")[0],
@@ -72,21 +72,36 @@ class Nav extends Component {
       })
       .then((response) => console.log(response))
       .catch((error) => console.error(error));
+  }
 
+  loserScore = () => {
+    const { minutes, seconds } = this.state;
+    const score = 0 * (minutes + seconds);
+    const { user } = this.props.auth;
+    axios
+      .put("/api/users/scores", {
+        name: user.name.split(" ")[0],
+        highscores: score,
+      })
+      .then((response) => console.log(response))
+      .catch((error) => console.error(error));
+  }
+  
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    this.props.setUserInput(this.state.name);
+    if (this.state.name==="wife") {
+      this.Score();
+    } else {
+      this.loserScore()
+    }
       this.toggle();
-    // this.props.history.push("/gameover")
-    
-    // if (name==="wife"){
-    //   // sucess logic
-    // } else {
-    //   // fail logic
-    // }
-
-    this.props.history.push("/gameover");
+      this.props.history.push("/gameover?timeExpired=N");
   };
 
-  
   onPreviousClick = (e) => {
+
     const currentURL = window.location.href;
         
     if (currentURL.endsWith("/kitchen")) {
@@ -221,10 +236,12 @@ class Nav extends Component {
 
 Nav.propTypes = {
   auth: PropTypes.object.isRequired,
+  setUserInput: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
+  input: state.input
 });
 
-export default connect(mapStateToProps)(Nav);
+export default connect(mapStateToProps, {setUserInput})(Nav);

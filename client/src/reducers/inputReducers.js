@@ -1,4 +1,4 @@
-import { GET_USER_INPUT } from "../actions/types";
+import { GET_USER_INPUT, SET_USER_INPUT } from "../actions/types";
 
 const initialState = {
     input: ""
@@ -8,9 +8,12 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_USER_INPUT:
-      return {
+         return {
           ...state,
-          input: action.payload, ...state.input
+      }
+    case SET_USER_INPUT: 
+       return {...state,
+      input: action.payload, ...state.input
       }
     default:
       return state;
