@@ -14,10 +14,12 @@ import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
 import Gameboard from "./components/Gameboard";
 import Scoreboard from "./components/Scoreboard";
+import Gameover from "./components/Gameover";
 import Bedroom from "./components/Bedroom";
 import Garden from "./components/Garden";
 import Kitchen from "./components/Kitchen";
 import Library from "./components/Library";
+
 import "./App.css";
 
 // Check for token to keep user logged in
@@ -37,6 +39,7 @@ if (localStorage.jwtToken) {
 
     // Redirect to login
     window.location.href = "./login";
+  
   }
 }
 
@@ -57,6 +60,7 @@ class App extends Component {
               <PrivateRoute exact path="/kitchen" component={Kitchen} />
               <PrivateRoute exact path="/library" component={Library} />
               <PrivateRoute exact path="/garden" component={Garden} />
+              <PrivateRoute exact path="/gameover" component={Gameover} />
               <PrivateRoute exact path="/scoreboard" component={Scoreboard} />
             </Switch>
           </div>
