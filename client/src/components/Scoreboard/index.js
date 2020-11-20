@@ -34,63 +34,68 @@ class Scoreboard extends Component {
   render() {
     return (
       <div id="sb">
-        <div className="translucent-form-overlay col-md-12">
-          <div
-            style={{
-              marginTop: "1rem",
-              marginRight: "1000px",
-              borderRadius: "25px",
-              backgroundColor: "rgba(54, 54, 54, 0.8)",
-              color: "gray",
-              letterSpacing: "1.5px",
-              marginLeft: "70px",
-              fontFamily: "Underdog, cursive",
-            }}
-            className="row"
-          >
-            <div className="container">
-              <h4
-                className="flow-text grey-text text-darken-1"
-                style={{ color: "yellow", textAlign: "center" }}
-              >
-                High Scores
-              </h4>
-              <Row>
-                <Col
-                  style={{
-                    textAlign: "left",
-                    marginRight: "50px",
-                    marginLeft: "30px",
-                  }}
-                  md={10}
+        <div className="row">
+          <div className="translucent-form-overlay col-md-12" style={{marginTop:"1rem"}}>
+            <div
+              style={{
+                marginTop: "50px",
+                marginRight: "1000px",
+                borderRadius: "25px",
+                backgroundColor: "rgba(54, 54, 54, 0.8)",
+                color: "gray",
+                letterSpacing: "1.5px",
+                marginLeft: "70px",
+                fontFamily: "Underdog, cursive",
+              }}
+            >
+              <div className="container">
+                <h4
+                  className="flow-text grey-text text-darken-1"
+                  style={{ color: "yellow", textAlign: "center",}}
                 >
-                  {this.state.data.map((data, i) => (
-                    <ListGroup key={i}>
-                      <ListGroupItem>
-                        {data.name} {data.highscores}
-                      </ListGroupItem>
-                    </ListGroup>
-                  ))}
-                  <Button
+                  High Scores
+              </h4>
+                <Row>
+                  <Col
                     style={{
-                      borderRadius: "25px",
-                      color: "yellow",
+                      textAlign: "left",
+                      marginRight: "50px",
+                      marginLeft: "30px",
+                      marginBottom: "20px",
+                      marginTop:"10px"
                     }}
-                    onClick={this.onLogoutClick}
+                    md={10}
                   >
-                    Logout
+                    {this.state.data.map((data, i) => (
+                      <ListGroup key={i}>
+                        <ListGroupItem>
+                          {data.name} {data.highscores}
+                        </ListGroupItem>
+                      </ListGroup>
+                    ))}
+                    <Button
+                      style={{
+                        borderRadius: "25px",
+                        color: "yellow",
+                        marginTop:"1rem"
+                      }}
+                      onClick={this.onLogoutClick}
+                    >
+                      Logout
                   </Button>
-                  <Button
-                    style={{
-                      borderRadius: "25px",
-                      color: "yellow",
-                    }}
-                    onClick={this.onRestartClick}
-                  >
-                    Restart
+                    <Button
+                      style={{
+                        borderRadius: "25px",
+                        color: "yellow",
+                        marginTop:"1rem"
+                      }}
+                      onClick={this.onRestartClick}
+                    >
+                      Restart
                   </Button>
-                </Col>
-              </Row>
+                  </Col>
+                </Row>
+              </div>
             </div>
           </div>
         </div>

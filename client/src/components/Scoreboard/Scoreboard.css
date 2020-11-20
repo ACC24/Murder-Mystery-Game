@@ -5,4 +5,12 @@
     background-position: center center;
     height: 100vh;
   }
+
+  #gbform{
+    display: flex;
+    padding-top: 10px;
+  }
+  h4{
+    margin-top: 20px;
+  }
   

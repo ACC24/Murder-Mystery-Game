@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
@@ -54,82 +55,98 @@ class Login extends Component {
 
     return (
       <div id="log">
-        <div className="translucent-form-overlay col-md-12">
-          <div
-            style={{
-              marginTop: "25px",
-              marginRight: "1000px",
-              borderRadius: "25px",
-              backgroundColor: "rgba(54, 54, 54, 0.8)",
-              color: "yellow",
-              letterSpacing: "1.5px",
-              marginLeft: "50px",
-            }}
-            className="row"
-          >
-            <div className="col s2 offset-s8">
-              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <h4 style={{ textAlign: "center" }}>
-                  <b>Login</b>
-                </h4>
-              </div>
-              <Form noValidate onSubmit={this.onSubmit}>
-                <Row form style={{ paddingLeft: "50px", paddingRight: "50px" }}>
-                  <Col md={12}>
-                    <FormGroup>
-                      <Input
-                        onChange={this.onChange}
-                        value={this.state.email}
-                        error={errors.email}
-                        id="email"
-                        type="email"
-                        placeholder="Email"
-                        className={classnames("", {
-                          invalid: errors.email || errors.emailnotfound,
-                        })}
-                      />
-                      <span className="red-text">
-                        {errors.email}
-                        {errors.emailnotfound}
-                      </span>
-                    </FormGroup>
-                    <FormGroup>
-                      <Input
-                        onChange={this.onChange}
-                        value={this.state.password}
-                        error={errors.password}
-                        id="password"
-                        type="password"
-                        placeholder="Password"
-                        className={classnames("", {
-                          invalid: errors.password || errors.passwordincorrect,
-                        })}
-                      />
-                      <span className="red-text">
-                        {errors.password}
-                        {errors.passwordincorrect}
-                      </span>
-                    </FormGroup>
-                    <div
-                      className="col s12"
-                      style={{ textAlign: "right", paddingLeft: "0px" }}
-                    >
-                      <Button
-                        type="submit translucent-form-overlay"
-                        style={{
-                          color: "yellow",
-                          borderColor: "yellow",
-                          backgroundColor: "rgba(54, 54, 54, 0.8)",
-                          borderRadius: "25px",
-                          marginBottom: "1rem",
-                        }}
+        <div className="row">
+          <div className="translucent-form-overlay col-md-12">
+            <div
+              style={{
+                marginTop: "50px",
+                marginRight: "1000px",
+                borderRadius: "25px",
+                backgroundColor: "rgba(54, 54, 54, 0.8)",
+                color: "yellow",
+                letterSpacing: "1.5px",
+                marginLeft: "50px",
+              }}
+            >
+              <div className="col s2 offset-s8">
+                <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+                  <h4 style={{ textAlign: "center" }}>
+                    <b>Login</b>
+                  </h4>
+                </div>
+                <Form noValidate onSubmit={this.onSubmit}>
+                  <Row form style={{ paddingLeft: "50px", paddingRight: "50px" }}>
+                    <Col md={12}>
+                      <FormGroup>
+                        <Input
+                          onChange={this.onChange}
+                          value={this.state.email}
+                          error={errors.email}
+                          id="email"
+                          type="email"
+                          placeholder="Email"
+                          className={classnames("", {
+                            invalid: errors.email || errors.emailnotfound,
+                          })}
+                        />
+                        <span className="red-text">
+                          {errors.email}
+                          {errors.emailnotfound}
+                        </span>
+                      </FormGroup>
+                      <FormGroup>
+                        <Input
+                          onChange={this.onChange}
+                          value={this.state.password}
+                          error={errors.password}
+                          id="password"
+                          type="password"
+                          placeholder="Password"
+                          className={classnames("", {
+                            invalid: errors.password || errors.passwordincorrect,
+                          })}
+                        />
+                        <span className="red-text">
+                          {errors.password}
+                          {errors.passwordincorrect}
+                        </span>
+                      </FormGroup>
+                      <div
+                        className="col s12"
+                        style={{ textAlign: "right", paddingLeft: "0px" }}
                       >
-                        Login
+                        <Button
+                          type="submit translucent-form-overlay"
+                          style={{
+                            color: "yellow",
+                            borderColor: "yellow",
+                            backgroundColor: "rgba(54, 54, 54, 0.8)",
+                            borderRadius: "25px",
+                            marginBottom: "1rem",
+                          }}
+                        >
+                          Login
                       </Button>
-                    </div>
-                  </Col>
-                </Row>
-              </Form>
+                        <p className="grey-text text-darken-1"style={{color:"white"}}>
+                          Don't have an account?
+                        <Link
+                            style={{
+                              color: "yellow",
+                              borderColor: "yellow",
+                              backgroundColor: "rgba(54, 54, 54, 0.8)",
+                              borderRadius: "25px",
+                              marginBottom: "1rem",
+                            }}
+                            to="/register"
+                          >
+                            Register!
+                            </Link>
+                        </p>
+                      </div>
+                    </Col>
+                  </Row>
+                </Form>
+              </div>
             </div>
           </div>
         </div>
