@@ -2,15 +2,14 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Button } from "reactstrap";
+import Intro from "../Intro"
 import "./Gameboard.css";
-// import shuffle from "../../utils/shuffle"
+
 
 class Gameboard extends Component {
   onStartClick = (e) => {
     e.preventDefault();
     this.props.history.push("/bedroom");
-
-
   };
 
   render() {
@@ -33,18 +32,7 @@ class Gameboard extends Component {
               }}
             >
               <b>Hello</b> {user.name.split(" ")[0]}!
-              <p>
-                Welcome to the Banks' Manor! There has been a murder. Willard
-                Banks was a wealthy billionaire inventor who helped develop some
-                of the biggest pharmaceuticals in the medical industry. He met
-                his fate one dreadful night. Mr. Banks had several enemies. It
-                didn’t help that he was also a rather unpleasant person to most
-                people. There was foul play indicated in their death ruling it a
-                homicide. The murderer is still at large and has yet to be
-                brought to justice. It is suspected that the murderer may soon
-                strike again.Please join us in solving this mystery, but join at
-                your own caution. Your involvement may end up in your own demise
-              </p>
+            <Intro/>
             </h4>
             <Button
               type="submit translucent-form-overlay"

@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Button } from "reactstrap";
-// import Message from "../Message";
+import Message from "../Message";
 import "./Gameover.css";
 import { getUserInput } from "../../actions/inputActions";
 
 class Gameover extends Component {
     
     componentDidMount() {
-       this.props.getUserInput();
+      this.props.getUserInput();
       }
 
     onRestartClick = (e) => {
@@ -19,14 +19,15 @@ class Gameover extends Component {
     onSeeScoresClick = (e) =>
         this.props.history.push("/scoreboard")
 
+    timeExpired = () => {
+        const didExpire = this.props.location.search.replace("?", "").split("=")[1] === "Y";
+        return didExpire;
+    }
+
     render() {
         const { user } = this.props.auth;
-        console.log ({user});
         const {input} = this.props.input
-        console.log({input});
-       
-        
-
+             
         return (
             <div id="go">
                 <div className="row">
@@ -43,11 +44,9 @@ class Gameover extends Component {
                                 fontFamily: "Underdog, cursive",
                             }}
                         >
-                            <b/> {user.name.split(" ")[0]}!
+                            <b/> Hey {user.name.split(" ")[0]}!
 
-                            <p>
-                                The killer is the {input}
-                            </p>
+                            <Message timeExpired={this.timeExpired()} name={input} />
                         </h4>
                         <Button
                             type="submit translucent-form-overlay"
