@@ -7,6 +7,8 @@ const users = require("./routes/api/users");
 
 const app = express();
 
+
+
 // Bodyparser middleware
 app.use(
   bodyParser.urlencoded({
@@ -15,6 +17,10 @@ app.use(
 );
 app.use(bodyParser.json());
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
+
 // DB Config
 const db = require("./config/keys").mongoURI;
 
@@ -22,7 +28,12 @@ const db = require("./config/keys").mongoURI;
 mongoose
   .connect(
     db,
-    { useNewUrlParser: true }
+    { 
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false
+     }
   )
   .then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log(err));
