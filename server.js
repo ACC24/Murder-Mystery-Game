@@ -14,6 +14,7 @@ class Gameboard extends Component {
   render() {
     const { user } = this.props.auth;
 
+<<<<<<< HEAD
     return (
       <div id="gb">
         <div className="row">
@@ -83,6 +84,38 @@ class Gameboard extends Component {
 Gameboard.propTypes = {
   auth: PropTypes.object.isRequired,
 };
+=======
+
+
+// Bodyparser middleware
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
+app.use(bodyParser.json());
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
+
+// DB Config
+const db = require("./config/keys").mongoURI;
+
+// Connect to MongoDB
+mongoose
+  .connect(
+    db,
+    { 
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false
+     }
+  )
+  .then(() => console.log("MongoDB successfully connected"))
+  .catch(err => console.log(err));
+>>>>>>> fcbee381dbf4582d27a393067a37ed30ab88ef44
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
