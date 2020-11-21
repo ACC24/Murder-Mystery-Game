@@ -20,6 +20,7 @@ class Landing extends Component {
           className="container translucent-form-overlay col-md-12 justify-content-start"
           style={{ width: "100%" }}
         >
+          <div>
           <Button
             style={{
               backgroundColor: "gray",
@@ -33,7 +34,8 @@ class Landing extends Component {
             onClick={this.onRegisterClick}
           >
             Register
-          </Button>
+          </Button>{' '}
+         
           <Button
             style={{
               color: "yellow",
@@ -48,6 +50,7 @@ class Landing extends Component {
           >
             Login
           </Button>
+          </div>
           <div className="container justify-content-center">
             <h1
               style={{

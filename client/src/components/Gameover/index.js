@@ -31,8 +31,8 @@ class Gameover extends Component {
         return (
             <div id="go">
                 <div className="row">
-                    <div className="translucent-form-overlay col-md-12">
-                        <h4
+                    <div style={{marginLeft:"20px"}}className="translucent-form-overlay col-md-12">
+                        <div
                             style={{
                                 marginTop: "1rem",
                                 marginRight: "1000px",
@@ -43,12 +43,13 @@ class Gameover extends Component {
                                 marginLeft: "50px",
                                 fontFamily: "Underdog, cursive",
                             }}
+                            
                         >
+                            <div className="col s2 offset-s8" style={{marginTop:'20px'}}>
                             <b/> Hey {user.name.split(" ")[0]}!
 
                             <Message timeExpired={this.timeExpired()} name={input} />
-                        </h4>
-                        <Button
+                            {' '}<Button
                             type="submit translucent-form-overlay"
                             style={{
                                 color: "yellow",
@@ -56,12 +57,12 @@ class Gameover extends Component {
                                 backgroundColor: "rgba(54, 54, 54, 0.8)",
                                 borderRadius: "25px",
                                 marginBottom: "1rem",
-                                marginLeft: "350px",
+                                
                             }}
                             onClick={this.onRestartClick}
                         >
                             Restart
-                        </Button>
+                        </Button>{' '}
                         <Button
                             type="submit translucent-form-overlay"
                             style={{
@@ -70,12 +71,15 @@ class Gameover extends Component {
                                 backgroundColor: "rgba(54, 54, 54, 0.8)",
                                 borderRadius: "25px",
                                 marginBottom: "1rem",
-                                marginLeft: "350px",
+                                
                             }}
                             onClick={this.onSeeScoresClick}
                         >
                             See Scores
                         </Button>
+                        </div>
+                        </div>
+                      
                     </div>
                 </div>
             </div>
