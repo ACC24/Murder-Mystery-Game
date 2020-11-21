@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Button } from "reactstrap";
-import Intro from "../Intro"
+import Intro from "../Intro";
 import "./Gameboard.css";
-
 
 class Gameboard extends Component {
   onStartClick = (e) => {
@@ -18,11 +17,14 @@ class Gameboard extends Component {
     return (
       <div id="gb">
         <div className="row">
-          <div className="translucent-form-overlay col-md-12" >
+          <div
+            className="translucent-form-overlay col-md-12"
+            style={{ height: "200px", width: "100px" }}
+          >
             <h4
               style={{
                 marginTop: "50px",
-                marginRight: "1000px",
+                marginRight: "400px",
                 borderRadius: "25px",
                 backgroundColor: "rgba(54, 54, 54, 0.8)",
                 color: "yellow",
@@ -32,7 +34,7 @@ class Gameboard extends Component {
               }}
             >
               <b>Hello</b> {user.name.split(" ")[0]}!
-            <Intro/>
+              <Intro />
             </h4>
             <Button
               type="submit translucent-form-overlay"
