@@ -15,13 +15,14 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { setUserInput} from "../../actions/inputActions";
 import "../Navbar/Navbar.css";
+// import Killer from "../Dropdown"
 
 class Nav extends Component {
   state = {
     modal: false,
     name: "",
-    minutes: 0,
-    seconds: 10,
+    minutes: 20,
+    seconds: 0,
   };
 
   componentDidMount() {
@@ -177,6 +178,7 @@ class Nav extends Component {
                 Who do you think is the killer?
                 </ModalHeader>
               <ModalBody>
+                {/* <Killer></Killer> */}
                 <Form onSubmit={this.onSubmit}>
                   <FormGroup>
                     <Input

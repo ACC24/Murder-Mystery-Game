@@ -6,12 +6,28 @@ function Clues(props) {
 
     return (<>
         {props.showClue && <div>
-            <Modal toggle={() => props.toggle()} isOpen={props.showClue}>
+            <Modal style={{
+                marginTop:"20px",
+                fontFamily: "Underdog, cursive",
+                borderRadius: "25px",
+                opacity:"0.8",
+                textAlign:"center"
+            }} toggle={() => props.toggle()} isOpen={props.showClue}>
 
-                <ModalBody>
+                <ModalBody style={{
+                 
+                }}>
                     <p>{props.message}</p>
                 </ModalBody>
-                <Button onClick={() => props.toggle()}>
+                <Button style={{
+                      color: "yellow",
+                      borderColor: "yellow",
+                      backgroundColor: "gray",
+                      borderRadius: "25px",
+                      fontWeight: "bolder",
+                      letterSpacing: "1.5px",
+                      fontFamily: "Underdog, cursive",
+                }} onClick={() => props.toggle()}>
                     Exit
         </Button>
 
