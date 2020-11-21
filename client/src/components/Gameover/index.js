@@ -46,7 +46,8 @@ class Gameover extends Component {
                             
                         >
                             <div className="col s2 offset-s8" style={{marginTop:'20px'}}>
-                            <b/> Hey {user.name.split(" ")[0]}!
+                            <br></br>
+                            <h4> Hey {user.name.split(" ")[0]}!</h4>
 
                             <Message timeExpired={this.timeExpired()} name={input} />
                             {' '}<Button

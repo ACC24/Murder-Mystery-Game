@@ -49,6 +49,7 @@ class Scoreboard extends Component {
               }}
             >
               <div className="container">
+                <br></br>
                 <h4
                   className="flow-text grey-text text-darken-1"
                   style={{ color: "yellow", textAlign: "center",}}
@@ -82,7 +83,7 @@ class Scoreboard extends Component {
                       onClick={this.onLogoutClick}
                     >
                       Logout
-                  </Button>
+                  </Button>{' '}
                     <Button
                       style={{
                         borderRadius: "25px",
