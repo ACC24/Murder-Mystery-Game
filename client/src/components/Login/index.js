@@ -54,7 +54,7 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
-      <div id="log">
+      <div id="log" className="container-fluid">
         <div className="row">
           <div className="translucent-form-overlay col-md-12">
             <div
@@ -68,7 +68,7 @@ class Login extends Component {
                 marginLeft: "50px",
               }}
             >
-              <div className="col s2 offset-s8">
+              <div className="col s12 offset-s8">
                 <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                   <h4 style={{ textAlign: "center" }}>
                     <b>Login</b>
