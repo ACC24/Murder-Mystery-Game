@@ -55,7 +55,7 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <div id="reg">
+      <div id="reg" className="container-fluid">
         <div className="row">
           <div className="container translucent-form-overlay col-md-12 ">
             <div
