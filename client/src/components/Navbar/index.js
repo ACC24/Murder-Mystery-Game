@@ -1,12 +1,11 @@
-import {
-  Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  Form,
-  FormGroup,
-  Input,
+import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup,
+  // Input,
   Navbar,
+ 
+  // Dropdown,
+  // DropdownItem,
+  // DropdownMenu,
+  // DropdownToggle
 } from "reactstrap";
 import React, { Component } from "react";
 import "./Navbar.css";
@@ -15,14 +14,14 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { setUserInput} from "../../actions/inputActions";
 import "../Navbar/Navbar.css";
-// import Killer from "../Dropdown"
 
 class Nav extends Component {
   state = {
+    // dropdownOpen: false,
     modal: false,
-    name: "",
     minutes: 20,
     seconds: 0,
+    selectedValue: "select killer"
   };
 
   componentDidMount() {
@@ -54,17 +53,34 @@ class Nav extends Component {
 
   toggle = () => {
     this.setState({
-      modal: !this.state.modal,
+      // dropdownOpen: !this.state.dropdownOpen,
+      modal: !this.state.modal
     });
   };
 
-  onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+  handleSelectValue = (e) => {
+    this.setState({ selectedValue: e.target.value });
+  };
+
+  handleFormSubmit = (e) => {
+    e.preventDefault();
+    this.props.setUserInput(this.state.selectedValue);
+    if (this.state.selectedValue==="wife") {
+      this.Score();
+    } else {
+      this.loserScore()
+    }
+      this.toggle();
+      this.props.history.push("/gameover?timeExpired=N");
+
+    console.log("You have submitted:", this.state.selectedValue);
   };
 
   Score = () => {
-    const { minutes, seconds } = this.state;
-    const score = 60 * (minutes + seconds);
+    // const { minutes, seconds } = this.state;
+    const score = `${this.state.minutes}:${this.state.seconds}`;
+
+    console.log(score);
     const { user } = this.props.auth;
     axios
       .put("/api/users/scores", {
@@ -87,19 +103,6 @@ class Nav extends Component {
       .then((response) => console.log(response))
       .catch((error) => console.error(error));
   }
-  
-
-  onSubmit = (e) => {
-    e.preventDefault();
-    this.props.setUserInput(this.state.name);
-    if (this.state.name==="wife") {
-      this.Score();
-    } else {
-      this.loserScore()
-    }
-      this.toggle();
-      this.props.history.push("/gameover?timeExpired=N");
-  };
 
   onPreviousClick = (e) => {
 
@@ -148,87 +151,124 @@ class Nav extends Component {
               &#8249;
               </Button>
             </div>
-          <div type="translucent-form-overlay">
-            <Button
-              style={{
-                color: "yellow",
-                borderColor: "yellow",
-                backgroundColor: "rgba(54, 54, 54, 0.8)",
-                borderRadius: "25px",
-                marginBottom: "2rem",
-                paddingLeft: "25px",
-                paddingRight: "25px",
-                fontFamily: "Underdog, cursive",
-              }}
-              onClick={this.toggle}
-            >
-              Who did it?
+            <div type="translucent-form-overlay">
+              <Button
+                style={{
+                  color: "yellow",
+                  borderColor: "yellow",
+                  backgroundColor: "rgba(54, 54, 54, 0.8)",
+                  borderRadius: "25px",
+                  marginBottom: "2rem",
+                  paddingLeft: "25px",
+                  paddingRight: "25px",
+                  fontFamily: "Underdog, cursive",
+                }}
+                onClick={this.toggle}
+              >
+                Who did it?
               </Button>
-            <Modal
-              style={{
-                fontFamily: "Underdog, cursive",
-              }}
-              isOpen={this.state.modal}
-              toggle={this.toggle}
-            >
-              <ModalHeader
-                style={{}}
+              <Modal
+                style={{
+                  fontFamily: "Underdog, cursive",
+                }}
+                isOpen={this.state.modal}
                 toggle={this.toggle}
               >
-                Who do you think is the killer?
+                <ModalHeader
+                  style={{}}
+                  toggle={this.toggle}
+                >
+                  Who do you think is the killer?
                 </ModalHeader>
-              <ModalBody>
-                {/* <Killer></Killer> */}
-                <Form onSubmit={this.onSubmit}>
-                  <FormGroup>
-                    <Input
-                      type="text"
-                      name="name"
-                      placeholder="name the killer"
-                      onChange={this.onChange}
-                    />
-                    <Button
-                      style={{ marginLeft: "360px" }}
-                    >
-                      Submit
-                      </Button>
-                  </FormGroup>
-                </Form>
-              </ModalBody>
-            </Modal>
-          </div>
-          <div
-            className="timer"
-            style={{
-              color: "yellow",
-              borderColor: "yellow",
-              backgroundColor: "rgba(54, 54, 54, 0.8)",
-              borderRadius: "25px",
-              marginBottom: "2rem",
-              paddingLeft: "25px",
-              paddingRight: "25px",
-              position: "right",
-              fontFamily: "Underdog, cursive",
-            }}
-          >
-            Time remaining: {this.state.minutes}:
-              {this.state.seconds < 10
-              ? `0${this.state.seconds}`
-              : this.state.seconds}
-          </div>
-          <div>
-            <Button id="next" onClick={this.onNextClick} style={{
-                borderColor: "yellow",
+                <ModalBody>
+                  <Form onSubmit={this.handleFormSubmit} >
+                  
+                {/* <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                  <DropdownToggle caret
+                  style={{
+                    color: "yellow",
+                    borderColor: "yellow",
+                    backgroundColor: "rgba(54, 54, 54, 0.8)",
+                    borderRadius: "25px",
+                    marginBottom: "2rem",
+                    paddingLeft: "25px",
+                    paddingRight: "25px",
+                    fontFamily: "Underdog, cursive",
+                  }}
+                  >
+                    Who did it?
+                  </DropdownToggle>
+                  <DropdownMenu 
+                    value={this.state.selectedValue}
+                    onClick={this.handleFormSubmit}
+                    onChange={this.handleSelectValue}
+                    style={{
+                      fontFamily: "Underdog, cursive",
+                    }}
+                  >
+                    <DropdownItem value="butler">Butler</DropdownItem> 
+                    <DropdownItem value="cook">Cook</DropdownItem>
+                    <DropdownItem valeu="groundskeeper">Groundskeeper</DropdownItem>
+                    <DropdownItem value="wife">Wife</DropdownItem>
+                  </DropdownMenu>
+                </Dropdown> */}
+
+                    <FormGroup>
+                      <select
+                        value={this.state.selectedValue}
+                        onChange={this.handleSelectValue}
+                        className="form-control"
+                        id="whoKilled"
+                      >
+                        <option value="select killer">Select killer</option>
+                        <option value="butler">Butler</option>
+                        <option value="cook">Cook</option>
+                        <option value="groundskeeper">Groundskeeper</option>
+                        <option value="wife">Wife</option>
+                        </select>
+                      <Button
+                      disabled={this.state.selectedValue === "select killer"}
+                        style={{ marginLeft: "360px" }}
+                      >
+                        Submit
+                        </Button>
+                    </FormGroup>
+                  </Form>
+                </ModalBody>
+              </Modal>
+            </div>
+            <div
+              className="timer"
+              style={{
                 color: "yellow",
+                borderColor: "yellow",
                 backgroundColor: "rgba(54, 54, 54, 0.8)",
                 borderRadius: "25px",
                 marginBottom: "2rem",
                 paddingLeft: "25px",
                 paddingRight: "25px",
-                fontFamily: "Underdog, cursive",}}>
-              &#8250;
-              </Button>
-          </div>
+                position: "right",
+                fontFamily: "Underdog, cursive",
+              }}
+            >
+              Time remaining: {this.state.minutes}:
+                {this.state.seconds < 10
+                ? `0${this.state.seconds}`
+                : this.state.seconds}
+            </div>
+            <div>
+              <Button id="next" onClick={this.onNextClick} style={{
+                  borderColor: "yellow",
+                  color: "yellow",
+                  backgroundColor: "rgba(54, 54, 54, 0.8)",
+                  borderRadius: "25px",
+                  marginBottom: "2rem",
+                  paddingLeft: "25px",
+                  paddingRight: "25px",
+                  fontFamily: "Underdog, cursive",}}>
+                &#8250;
+                </Button>
+            </div>
           </Navbar>
       </div>
       </div >

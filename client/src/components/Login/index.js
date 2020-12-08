@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
@@ -41,7 +41,6 @@ class Login extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-
     const userData = {
       email: this.state.email,
       password: this.state.password,

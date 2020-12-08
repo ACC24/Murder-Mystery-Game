@@ -70,7 +70,7 @@ class Scoreboard extends Component {
                     {this.state.data.map((data, i) => (
                       <ListGroup key={i}>
                         <ListGroupItem>
-                          {data.name} {data.highscores}
+                          {data.name} {data.highscores} minutes
                         </ListGroupItem>
                       </ListGroup>
                     ))}
