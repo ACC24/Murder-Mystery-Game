@@ -1,10 +1,12 @@
+
 import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Navbar } from "reactstrap";
+
 import React, { Component } from "react";
 import "./Navbar.css";
 import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { setUserInput} from "../../actions/inputActions";
+import { setUserInput } from "../../actions/inputActions";
 import "../Navbar/Navbar.css";
 
 class Nav extends Component {
@@ -25,9 +27,9 @@ class Nav extends Component {
       }
       if (seconds === 0) {
         if (minutes === 0) {
-          clearInterval(this.myInterval); 
+          clearInterval(this.myInterval);
           this.Score();
-          this.props.history.push("/gameover?timeExpired=Y")
+          this.props.history.push("/gameover?timeExpired=Y");
         } else {
           this.setState(({ minutes }) => ({
             minutes: minutes - 1,
@@ -76,7 +78,7 @@ class Nav extends Component {
       })
       .then((response) => console.log(response))
       .catch((error) => console.error(error));
-  }
+  };
 
   loserScore = () => {
     const { minutes, seconds } = this.state;
@@ -89,35 +91,35 @@ class Nav extends Component {
       })
       .then((response) => console.log(response))
       .catch((error) => console.error(error));
+
   }
 
   onPreviousClick = (e) => {
-
     const currentURL = window.location.href;
-        
+
     if (currentURL.endsWith("/kitchen")) {
-     this.props.history.push("/bedroom")
+      this.props.history.push("/bedroom");
     }
     if (currentURL.endsWith("/library")) {
-     this.props.history.push("/kitchen")
+      this.props.history.push("/kitchen");
     }
     if (currentURL.endsWith("/garden")) {
-     this.props.history.push("/library")
-    }        
+      this.props.history.push("/library");
+    }
   };
 
   onNextClick = (e) => {
     const currentURL = window.location.href;
-        
-   if (currentURL.endsWith("/bedroom")) {
-    this.props.history.push("/kitchen")
-   }
-   if (currentURL.endsWith("/kitchen")) {
-    this.props.history.push("/library")
-   }
-   if (currentURL.endsWith("/library")) {
-    this.props.history.push("/garden")
-   }        
+
+    if (currentURL.endsWith("/bedroom")) {
+      this.props.history.push("/kitchen");
+    }
+    if (currentURL.endsWith("/kitchen")) {
+      this.props.history.push("/library");
+    }
+    if (currentURL.endsWith("/library")) {
+      this.props.history.push("/garden");
+    }
   };
 
   render() {
@@ -126,18 +128,66 @@ class Nav extends Component {
         <div className="translucent-form-overlay col-md-12">
           <Navbar>
             <div>
-              <Button id="prev" onClick={this.onPreviousClick} style={{
-                borderColor: "yellow",
-                color: "yellow",
-                backgroundColor: "rgba(54, 54, 54, 0.8)",
-                borderRadius: "25px",
-                marginBottom: "2rem",
-                paddingLeft: "25px",
-                paddingRight: "25px",
-                fontFamily: "Underdog, cursive",}}>
-              &#8249;
+              <Button
+                id="prev"
+                onClick={this.onPreviousClick}
+                style={{
+                  borderColor: "yellow",
+                  color: "yellow",
+                  backgroundColor: "rgba(54, 54, 54, 0.8)",
+                  borderRadius: "25px",
+                  marginBottom: "2rem",
+                  paddingLeft: "25px",
+                  paddingRight: "25px",
+                  fontFamily: "Underdog, cursive",
+                }}
+              >
+                &#8249;
               </Button>
             </div>
+            <div type="translucent-form-overlay">
+              <Button
+                style={{
+                  color: "yellow",
+                  borderColor: "yellow",
+                  backgroundColor: "rgba(54, 54, 54, 0.8)",
+                  borderRadius: "25px",
+                  marginBottom: "2rem",
+                  paddingLeft: "25px",
+                  paddingRight: "25px",
+                  fontFamily: "Underdog, cursive",
+                }}
+                onClick={this.toggle}
+              >
+                Who did it?
+              </Button>
+              <Modal
+                style={{
+                  fontFamily: "Underdog, cursive",
+                }}
+                isOpen={this.state.modal}
+                toggle={this.toggle}
+              >
+                <ModalHeader style={{}} toggle={this.toggle}>
+                  Who do you think is the killer?
+                </ModalHeader>
+                <ModalBody>
+                  {/* <Killer></Killer> */}
+                  <Form onSubmit={this.onSubmit}>
+                    <FormGroup>
+                      <Input
+                        type="text"
+                        name="name"
+                        placeholder="name the killer"
+                        onChange={this.onChange}
+                      />
+                      <Button style={{ marginLeft: "360px" }}>Submit</Button>
+                    </FormGroup>
+                  </Form>
+                </ModalBody>
+              </Modal>
+            </div>
+
             <div type="translucent-form-overlay">
               <Button
                 style={{
@@ -209,11 +259,14 @@ class Nav extends Component {
             >
               Time remaining: {this.state.minutes}:
                 {this.state.seconds < 10
+
                 ? `0${this.state.seconds}`
                 : this.state.seconds}
             </div>
             <div>
+
               <Button id="next" onClick={this.onNextClick} style={{
+
                   borderColor: "yellow",
                   color: "yellow",
                   backgroundColor: "rgba(54, 54, 54, 0.8)",
@@ -221,25 +274,26 @@ class Nav extends Component {
                   marginBottom: "2rem",
                   paddingLeft: "25px",
                   paddingRight: "25px",
+
                   fontFamily: "Underdog, cursive",}}>
                 &#8250;
                 </Button>
             </div>
           </Navbar>
+        </div>
       </div>
-      </div >
     );
   }
 }
 
 Nav.propTypes = {
   auth: PropTypes.object.isRequired,
-  setUserInput: PropTypes.func.isRequired
+  setUserInput: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
-  input: state.input
+  input: state.input,
 });
 
-export default connect(mapStateToProps, {setUserInput})(Nav);
+export default connect(mapStateToProps, { setUserInput })(Nav);
