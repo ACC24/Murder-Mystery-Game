@@ -6,8 +6,7 @@ import Intro from "../Intro";
 import "./Gameboard.css";
 
   class Gameboard extends Component {
-  
-  
+    
   onStartClick = (e) => {
     e.preventDefault();
     this.props.history.push("/bedroom");
@@ -19,11 +18,14 @@ import "./Gameboard.css";
     return (
       <div id="gb">
         <div className="row">
-          <div style={{marginLeft:"20px"}} className="translucent-form-overlay col-md-12" >
+          <div
+            style={{ marginLeft: "20px" }}
+            className="translucent-form-overlay col-md-12"
+          >
             <div
               style={{
                 marginTop: "50px",
-                marginRight: "1000px",
+                marginRight: "400px",
                 borderRadius: "25px",
                 backgroundColor: "rgba(54, 54, 54, 0.8)",
                 color: "yellow",
@@ -32,7 +34,7 @@ import "./Gameboard.css";
                 fontFamily: "Underdog, cursive",
               }}
             >
-              <div className="col s2 offset-s8" style={{marginTop:'20px'}}>
+              <div className="col s2 offset-s8" style={{ marginTop: "20px" }}>
                 <br></br>
                 <h4 style={{fontWeight:'bold'}}>Hello {user.name.split(" ")[0]}!</h4>
                 <Intro></Intro>

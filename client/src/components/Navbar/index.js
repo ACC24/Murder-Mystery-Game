@@ -1,12 +1,4 @@
-import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup,
-  // Input,
-  Navbar,
- 
-  // Dropdown,
-  // DropdownItem,
-  // DropdownMenu,
-  // DropdownToggle
-} from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Navbar } from "reactstrap";
 import React, { Component } from "react";
 import "./Navbar.css";
 import axios from "axios";
@@ -17,7 +9,6 @@ import "../Navbar/Navbar.css";
 
 class Nav extends Component {
   state = {
-    // dropdownOpen: false,
     modal: false,
     minutes: 20,
     seconds: 0,
@@ -53,7 +44,6 @@ class Nav extends Component {
 
   toggle = () => {
     this.setState({
-      // dropdownOpen: !this.state.dropdownOpen,
       modal: !this.state.modal
     });
   };
@@ -77,10 +67,7 @@ class Nav extends Component {
   };
 
   Score = () => {
-    // const { minutes, seconds } = this.state;
     const score = `${this.state.minutes}:${this.state.seconds}`;
-
-    console.log(score);
     const { user } = this.props.auth;
     axios
       .put("/api/users/scores", {
@@ -182,38 +169,7 @@ class Nav extends Component {
                 </ModalHeader>
                 <ModalBody>
                   <Form onSubmit={this.handleFormSubmit} >
-                  
-                {/* <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                  <DropdownToggle caret
-                  style={{
-                    color: "yellow",
-                    borderColor: "yellow",
-                    backgroundColor: "rgba(54, 54, 54, 0.8)",
-                    borderRadius: "25px",
-                    marginBottom: "2rem",
-                    paddingLeft: "25px",
-                    paddingRight: "25px",
-                    fontFamily: "Underdog, cursive",
-                  }}
-                  >
-                    Who did it?
-                  </DropdownToggle>
-                  <DropdownMenu 
-                    value={this.state.selectedValue}
-                    onClick={this.handleFormSubmit}
-                    onChange={this.handleSelectValue}
-                    style={{
-                      fontFamily: "Underdog, cursive",
-                    }}
-                  >
-                    <DropdownItem value="butler">Butler</DropdownItem> 
-                    <DropdownItem value="cook">Cook</DropdownItem>
-                    <DropdownItem valeu="groundskeeper">Groundskeeper</DropdownItem>
-                    <DropdownItem value="wife">Wife</DropdownItem>
-                  </DropdownMenu>
-                </Dropdown> */}
-
-                    <FormGroup>
+                  <FormGroup>
                       <select
                         value={this.state.selectedValue}
                         onChange={this.handleSelectValue}
