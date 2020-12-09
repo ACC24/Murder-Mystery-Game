@@ -8,6 +8,7 @@ import {
 } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Int from "../../assets/images/Intro.jpg";
+import Inst from "../../assets/images/inst.jpg";
 import Butler from "../../assets/images/butler.jpg";
 import Groundskeeper from "../../assets/images/groundskeeper.jpg";
 import Wife from "../../assets/images/wife.jpg";
@@ -17,6 +18,11 @@ const items = [
     src: Int,
     altText: "",
     caption: "Intro",
+  },
+  {
+    src: Inst,
+    altText: "",
+    caption: "Instructions",
   },
   {
     src: Wife,
@@ -75,7 +81,7 @@ const Intro = (props) => {
   });
   return (
     <div>
-    <Carousel
+    <Carousel interval={false}
       activeIndex={activeIndex}
       next={next}
       previous={previous}

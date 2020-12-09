@@ -182,6 +182,7 @@ class Nav extends Component {
                         <option value="groundskeeper">Groundskeeper</option>
                         <option value="wife">Wife</option>
                         </select>
+                        <br></br>
                       <Button
                       disabled={this.state.selectedValue === "select killer"}
                         style={{ marginLeft: "360px" }}
