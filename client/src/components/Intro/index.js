@@ -7,22 +7,34 @@ import {
   CarouselCaption,
 } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Bedroom from "../../assets/images/bedroom.jpg";
-import Garden from "../../assets/images/garden.jpg";
-import Library from "../../assets/images/library.jpg";
+import Int from "../../assets/images/Intro.jpg";
+import Butler from "../../assets/images/butler.jpg";
+import Groundskeeper from "../../assets/images/groundskeeper.jpg";
+import Wife from "../../assets/images/wife.jpg";
+import Cook from "../../assets/images/cook.jpg";
 const items = [
   {
-    src: Bedroom,
-    altText: "Slide 1",
-    caption: "Slide 1",
+    src: Int,
+    altText: "",
+    caption: "Intro",
   },
   {
-    src: Garden,
+    src: Wife,
+    altText: "",
+    caption: "Wife",
+  },
+  {
+    src: Cook,
+    altText: "Suspect 1 the butler,Mr.  Hunter Graves. ",
+    caption: "Butler",
+  },
+  {
+    src: Butler,
     altText: "Slide 2",
     caption: "Slide 2",
   },
   {
-    src: Library,
+    src: Groundskeeper,
     altText: "Slide 3",
     caption: "Slide 3",
   },
@@ -51,8 +63,13 @@ const Intro = (props) => {
         onExited={() => setAnimating(false)}
         key={item.src}
       >
-        <img src={item.src} alt={item.altText}/>
-        <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+
+        <img src={item.src} alt={item.altText} width="700px" height="500px" />
+        <CarouselCaption
+
+        // captionText={item.caption}
+        // captionHeader={item.caption}
+        />
       </CarouselItem>
     );
   });

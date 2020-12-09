@@ -22,7 +22,7 @@ import "./Gameboard.css";
           >
             <div
               style={{
-                marginTop: "10px",
+                marginTop: "25px",
                 marginRight: "400px",
                 borderRadius: "25px",
                 backgroundColor: "rgba(54, 54, 54, 0.8)",
@@ -35,10 +35,10 @@ import "./Gameboard.css";
               <div className="col s12 offset-s8" style={{ marginTop: "20px" }}>
                 <br></br>
                 <h4 style={{ fontWeight: "bold", textAlign: "center" }}>
-                  Hello {user.name.split(" ")[0]}!{" "}
-                  <Intro style={{ color: "yellow" }}></Intro>
+                  Hello {user.name.split(" ")[0]}! <Intro></Intro>
                 </h4>
                 <br></br>
+
                 <Button
                   type="submit translucent-form-overlay"
                   style={{
@@ -47,7 +47,7 @@ import "./Gameboard.css";
                     backgroundColor: "rgba(54, 54, 54, 0.8)",
                     borderRadius: "25px",
                     marginBottom: "1rem",
-                    marginLeft: "350px",
+                    marginLeft: "450px",
                   }}
                   onClick={this.onStartClick}
                 >
