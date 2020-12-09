@@ -21,7 +21,7 @@ class Gameboard extends Component {
           >
             <div
               style={{
-                marginTop: "50px",
+                marginTop: "10px",
                 marginRight: "400px",
                 borderRadius: "25px",
                 backgroundColor: "rgba(54, 54, 54, 0.8)",
