@@ -7,16 +7,21 @@ import {
   CarouselCaption,
 } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Int from "../../assets/images/Intro.jpg";
 import Butler from "../../assets/images/butler.jpg";
-import Garden from "../../assets/images/garden.jpg";
-import Library from "../../assets/images/library.jpg";
+import Groundskeeper from "../../assets/images/groundskeeper.jpg";
 import Wife from "../../assets/images/wife.jpg";
 import Cook from "../../assets/images/cook.jpg";
 const items = [
   {
+    src: Int,
+    altText: "",
+    caption: "Intro",
+  },
+  {
     src: Wife,
-    altText: "Suspect 1 the butler,Mr.  Hunter Graves. ",
-    caption: "Butler",
+    altText: "",
+    caption: "Wife",
   },
   {
     src: Cook,
@@ -25,16 +30,11 @@ const items = [
   },
   {
     src: Butler,
-    altText: "Suspect 1 the butler,Mr.  Hunter Graves. ",
-    caption: "Butler",
-  },
-  {
-    src: Garden,
     altText: "Slide 2",
     caption: "Slide 2",
   },
   {
-    src: Library,
+    src: Groundskeeper,
     altText: "Slide 3",
     caption: "Slide 3",
   },
@@ -63,7 +63,7 @@ const Intro = (props) => {
         onExited={() => setAnimating(false)}
         key={item.src}
       >
-        <img src={item.src} alt={item.altText} />
+        <img src={item.src} alt={item.altText} width="700px" height="500px" />
         <CarouselCaption
 
         // captionText={item.caption}
