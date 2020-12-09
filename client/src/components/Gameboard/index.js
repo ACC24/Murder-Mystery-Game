@@ -36,15 +36,11 @@ import "./Gameboard.css";
             >
               <div className="col s2 offset-s8" style={{ marginTop: "20px" }}>
                 <br></br>
-                <h4 style={{fontWeight:'bold'}}>Hello {user.name.split(" ")[0]}!</h4>
-                <Intro></Intro>
-                {/* <br></br>
-                <h6>Welcome to the Banks' Manor! There has been a murder. Willard Banks was a wealthy billionaire inventor who helped 
-                    develop some of the biggest pharmaceuticals in the medical industry. He met his fate one dreadful night. Mr. Banks had several enemies. It didn’t help that he was also a rather unpleasant person to most people. There was foul play indicated in their death ruling it ahomicide. The murderer is still at large and has yet to be brought to justice. It is suspected that the murderer may soon strike again.Please join us in solving this mystery, but join atyour own caution. Your involvement may end up in your own demise!
-                  <br></br>
-                  <br></br> Your main suspects are: the wife, the butler, the cook, and the groundskeeper. Click around the rooms to  
-                            find additional clues.
-                </h6> */}
+                <h4 style={{ fontWeight: "bold", textAlign: "center" }}>
+                  Hello {user.name.split(" ")[0]}!{" "}
+                  <Intro style={{ color: "yellow" }}></Intro>
+                </h4>
+                <br></br>
                 <Button
                   type="submit translucent-form-overlay"
                   style={{
