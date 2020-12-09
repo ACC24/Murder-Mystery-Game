@@ -69,7 +69,6 @@ class Register extends Component {
                 marginLeft: "50px",
               }}
             >
-
               <div className="col s12 offset-s8">
                 <Form
                   noValidate

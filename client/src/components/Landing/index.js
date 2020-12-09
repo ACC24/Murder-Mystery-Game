@@ -21,35 +21,34 @@ class Landing extends Component {
           style={{ width: "100%" }}
         >
           <div>
-          <Button
-            style={{
-              backgroundColor: "gray",
-              color: "yellow",
-              borderColor: "yellow",
-              borderRadius: "25px",
-              fontWeight: "bolder",
-              letterSpacing: "1.5px",
-            }}
-            className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-            onClick={this.onRegisterClick}
-          >
-            Register
-          </Button>{' '}
-         
-          <Button
-            style={{
-              color: "yellow",
-              borderColor: "yellow",
-              backgroundColor: "gray",
-              borderRadius: "25px",
-              fontWeight: "bolder",
-              letterSpacing: "1.5px",
-            }}
-            onClick={this.onLoginClick}
-            className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-          >
-            Login
-          </Button>
+            <Button
+              style={{
+                backgroundColor: "gray",
+                color: "yellow",
+                borderColor: "yellow",
+                borderRadius: "25px",
+                fontWeight: "bolder",
+                letterSpacing: "1.5px",
+              }}
+              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+              onClick={this.onRegisterClick}
+            >
+              Register
+            </Button>{' '}
+            <Button
+              style={{
+                color: "yellow",
+                borderColor: "yellow",
+                backgroundColor: "gray",
+                borderRadius: "25px",
+                fontWeight: "bolder",
+                letterSpacing: "1.5px",
+              }}
+              onClick={this.onLoginClick}
+              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+            >
+              Login
+            </Button>
           </div>
           <div className="container justify-content-center">
             <h1
