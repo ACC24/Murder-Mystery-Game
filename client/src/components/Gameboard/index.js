@@ -15,11 +15,9 @@ class Gameboard extends Component {
     const { user } = this.props.auth;
 
     return (
-      <div id="gb">
+      <div id="gb" className="container-fluid">
         <div className="row">
-          <div
-            style={{ marginLeft: "20px" }}
-            className="translucent-form-overlay col-md-12"
+          <div className="translucent-form-overlay col-md-12"
           >
             <div
               style={{
@@ -33,7 +31,7 @@ class Gameboard extends Component {
                 fontFamily: "Underdog, cursive",
               }}
             >
-              <div className="col s2 offset-s8" style={{ marginTop: "20px" }}>
+              <div className="col s12 offset-s8" style={{ marginTop: "20px" }}>
                 <br></br>
                 <h4 style={{ fontWeight: "bold", textAlign: "center" }}>
                   Hello {user.name.split(" ")[0]}!{" "}
