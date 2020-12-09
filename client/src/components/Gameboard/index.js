@@ -16,11 +16,9 @@ import "./Gameboard.css";
     const { user } = this.props.auth;
 
     return (
-      <div id="gb">
+      <div id="gb" className="container-fluid">
         <div className="row">
-          <div
-            style={{ marginLeft: "20px" }}
-            className="translucent-form-overlay col-md-12"
+          <div className="translucent-form-overlay col-md-12"
           >
             <div
               style={{
@@ -34,13 +32,15 @@ import "./Gameboard.css";
                 fontFamily: "Underdog, cursive",
               }}
             >
-              <div className="col s2 offset-s8" style={{ marginTop: "20px" }}>
+              <div className="col s12 offset-s8" style={{ marginTop: "20px" }}>
                 <br></br>
-                <h4 style={{ fontWeight: "bold", textAlign: "center" }}>
-                  Hello {user.name.split(" ")[0]}! <Intro></Intro>
+                <h4 style={{ fontWeight: "bold", textAlign: "center", }}>Hello {user.name.split(" ")[0]}!</h4>
+                <h4 style={{ fontWeight: "bold", textAlign: "center", }}>
+                   <Intro></Intro>
                 </h4>
                 <br></br>
-
+                
+                <h4 style={{ fontWeight: "bold", textAlign: "center", }}>
                 <Button
                   type="submit translucent-form-overlay"
                   style={{
@@ -48,13 +48,14 @@ import "./Gameboard.css";
                     borderColor: "yellow",
                     backgroundColor: "rgba(54, 54, 54, 0.8)",
                     borderRadius: "25px",
-                    marginBottom: "1rem",
-                    marginLeft: "450px",
+                    marginBottom:"20px",
                   }}
                   onClick={this.onStartClick}
                 >
                   Start
                 </Button>
+                </h4>
+
               </div>
             </div>
           </div>
