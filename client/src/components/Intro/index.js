@@ -7,14 +7,26 @@ import {
   CarouselCaption,
 } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Bedroom from "../../assets/images/bedroom.jpg";
+import Butler from "../../assets/images/butler.jpg";
 import Garden from "../../assets/images/garden.jpg";
 import Library from "../../assets/images/library.jpg";
+import Wife from "../../assets/images/wife.jpg";
+import Cook from "../../assets/images/cook.jpg";
 const items = [
   {
-    src: Bedroom,
-    altText: "Slide 1",
-    caption: "Slide 1",
+    src: Wife,
+    altText: "Suspect 1 the butler,Mr.  Hunter Graves. ",
+    caption: "Butler",
+  },
+  {
+    src: Cook,
+    altText: "Suspect 1 the butler,Mr.  Hunter Graves. ",
+    caption: "Butler",
+  },
+  {
+    src: Butler,
+    altText: "Suspect 1 the butler,Mr.  Hunter Graves. ",
+    caption: "Butler",
   },
   {
     src: Garden,
@@ -53,8 +65,9 @@ const Intro = (props) => {
       >
         <img src={item.src} alt={item.altText} />
         <CarouselCaption
-          captionText={item.caption}
-          captionHeader={item.caption}
+
+        // captionText={item.caption}
+        // captionHeader={item.caption}
         />
       </CarouselItem>
     );

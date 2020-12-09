@@ -36,8 +36,7 @@ class Gameboard extends Component {
               <div className="col s2 offset-s8" style={{ marginTop: "20px" }}>
                 <br></br>
                 <h4 style={{ fontWeight: "bold", textAlign: "center" }}>
-                  Hello {user.name.split(" ")[0]}!{" "}
-                  <Intro style={{ color: "yellow" }}></Intro>
+                  Hello {user.name.split(" ")[0]}! <Intro></Intro>
                 </h4>
                 <br></br>
                 {/* <h6>
