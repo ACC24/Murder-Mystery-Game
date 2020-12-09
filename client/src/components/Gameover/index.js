@@ -43,44 +43,41 @@ class Gameover extends Component {
                                 marginLeft: "50px",
                                 fontFamily: "Underdog, cursive",
                             }}
-                            
                         >
                             <div className="col s2 offset-s8" style={{marginTop:'20px'}}>
-                            <br></br>
-                            <h4> Hey {user.name.split(" ")[0]}!</h4>
-
-                            <Message timeExpired={this.timeExpired()} name={input} />
-                            {' '}<Button
-                            type="submit translucent-form-overlay"
-                            style={{
-                                color: "yellow",
-                                borderColor: "yellow",
-                                backgroundColor: "rgba(54, 54, 54, 0.8)",
-                                borderRadius: "25px",
-                                marginBottom: "1rem",
+                                <br></br>
+                                <h4> Hey {user.name.split(" ")[0]}!</h4>
                                 
-                            }}
-                            onClick={this.onRestartClick}
-                        >
-                            Restart
-                        </Button>{' '}
-                        <Button
-                            type="submit translucent-form-overlay"
-                            style={{
-                                color: "yellow",
-                                borderColor: "yellow",
-                                backgroundColor: "rgba(54, 54, 54, 0.8)",
-                                borderRadius: "25px",
-                                marginBottom: "1rem",
+                                <Message timeExpired={this.timeExpired()} name={input} />
                                 
-                            }}
-                            onClick={this.onSeeScoresClick}
-                        >
-                            See Scores
-                        </Button>
+                                {' '}<Button
+                                        type="submit translucent-form-overlay"
+                                        style={{
+                                            color: "yellow",
+                                            borderColor: "yellow",
+                                            backgroundColor: "rgba(54, 54, 54, 0.8)",
+                                            borderRadius: "25px",
+                                            marginBottom: "1rem",
+                                        }}
+                                        onClick={this.onRestartClick}
+                                    >
+                                        Restart
+                                    </Button>{' '}
+                                    <Button
+                                        type="submit translucent-form-overlay"
+                                        style={{
+                                            color: "yellow",
+                                            borderColor: "yellow",
+                                            backgroundColor: "rgba(54, 54, 54, 0.8)",
+                                            borderRadius: "25px",
+                                            marginBottom: "1rem",
+                                        }}
+                                        onClick={this.onSeeScoresClick}
+                                    >
+                                        See Scores
+                                    </Button>
+                            </div>
                         </div>
-                        </div>
-                      
                     </div>
                 </div>
             </div>

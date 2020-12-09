@@ -5,7 +5,8 @@ import { Button } from "reactstrap";
 import Intro from "../Intro";
 import "./Gameboard.css";
 
-class Gameboard extends Component {
+  class Gameboard extends Component {
+    
   onStartClick = (e) => {
     e.preventDefault();
     this.props.history.push("/bedroom");

@@ -1,12 +1,6 @@
-import {
-  Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  Form,
-  FormGroup,
-  Navbar,
-} from "reactstrap";
+
+import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Navbar } from "reactstrap";
+
 import React, { Component } from "react";
 import "./Navbar.css";
 import axios from "axios";
@@ -18,9 +12,9 @@ import "../Navbar/Navbar.css";
 class Nav extends Component {
   state = {
     modal: false,
-    name: "",
     minutes: 20,
     seconds: 0,
+    selectedValue: "select killer"
   };
 
   componentDidMount() {
@@ -52,17 +46,30 @@ class Nav extends Component {
 
   toggle = () => {
     this.setState({
-      modal: !this.state.modal,
+      modal: !this.state.modal
     });
   };
 
-  onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+  handleSelectValue = (e) => {
+    this.setState({ selectedValue: e.target.value });
+  };
+
+  handleFormSubmit = (e) => {
+    e.preventDefault();
+    this.props.setUserInput(this.state.selectedValue);
+    if (this.state.selectedValue==="wife") {
+      this.Score();
+    } else {
+      this.loserScore()
+    }
+      this.toggle();
+      this.props.history.push("/gameover?timeExpired=N");
+
+    console.log("You have submitted:", this.state.selectedValue);
   };
 
   Score = () => {
-    const { minutes, seconds } = this.state;
-    const score = 60 * (minutes + seconds);
+    const score = `${this.state.minutes}:${this.state.seconds}`;
     const { user } = this.props.auth;
     axios
       .put("/api/users/scores", {
@@ -84,19 +91,8 @@ class Nav extends Component {
       })
       .then((response) => console.log(response))
       .catch((error) => console.error(error));
-  };
 
-  onSubmit = (e) => {
-    e.preventDefault();
-    this.props.setUserInput(this.state.name);
-    if (this.state.name === "wife") {
-      this.Score();
-    } else {
-      this.loserScore();
-    }
-    this.toggle();
-    this.props.history.push("/gameover?timeExpired=N");
-  };
+  }
 
   onPreviousClick = (e) => {
     const currentURL = window.location.href;
@@ -191,6 +187,62 @@ class Nav extends Component {
                 </ModalBody>
               </Modal>
             </div>
+
+            <div type="translucent-form-overlay">
+              <Button
+                style={{
+                  color: "yellow",
+                  borderColor: "yellow",
+                  backgroundColor: "rgba(54, 54, 54, 0.8)",
+                  borderRadius: "25px",
+                  marginBottom: "2rem",
+                  paddingLeft: "25px",
+                  paddingRight: "25px",
+                  fontFamily: "Underdog, cursive",
+                }}
+                onClick={this.toggle}
+              >
+                Who did it?
+              </Button>
+              <Modal
+                style={{
+                  fontFamily: "Underdog, cursive",
+                }}
+                isOpen={this.state.modal}
+                toggle={this.toggle}
+              >
+                <ModalHeader
+                  style={{}}
+                  toggle={this.toggle}
+                >
+                  Who do you think is the killer?
+                </ModalHeader>
+                <ModalBody>
+                  <Form onSubmit={this.handleFormSubmit} >
+                  <FormGroup>
+                      <select
+                        value={this.state.selectedValue}
+                        onChange={this.handleSelectValue}
+                        className="form-control"
+                        id="whoKilled"
+                      >
+                        <option value="select killer">Select killer</option>
+                        <option value="butler">Butler</option>
+                        <option value="cook">Cook</option>
+                        <option value="groundskeeper">Groundskeeper</option>
+                        <option value="wife">Wife</option>
+                        </select>
+                      <Button
+                      disabled={this.state.selectedValue === "select killer"}
+                        style={{ marginLeft: "360px" }}
+                      >
+                        Submit
+                        </Button>
+                    </FormGroup>
+                  </Form>
+                </ModalBody>
+              </Modal>
+            </div>
             <div
               className="timer"
               style={{
@@ -206,15 +258,15 @@ class Nav extends Component {
               }}
             >
               Time remaining: {this.state.minutes}:
-              {this.state.seconds < 10
+                {this.state.seconds < 10
+
                 ? `0${this.state.seconds}`
                 : this.state.seconds}
             </div>
             <div>
-              <Button
-                id="next"
-                onClick={this.onNextClick}
-                style={{
+
+              <Button id="next" onClick={this.onNextClick} style={{
+
                   borderColor: "yellow",
                   color: "yellow",
                   backgroundColor: "rgba(54, 54, 54, 0.8)",
@@ -222,11 +274,10 @@ class Nav extends Component {
                   marginBottom: "2rem",
                   paddingLeft: "25px",
                   paddingRight: "25px",
-                  fontFamily: "Underdog, cursive",
-                }}
-              >
+
+                  fontFamily: "Underdog, cursive",}}>
                 &#8250;
-              </Button>
+                </Button>
             </div>
           </Navbar>
         </div>
