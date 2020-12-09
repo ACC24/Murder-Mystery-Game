@@ -27,7 +27,7 @@ As the user
 
 ## Deployed Application
 
-https://rocky-forest-45665.herokuapp.com/
+https://murder-at-the-manor.herokuapp.com/
 
 ### Contributors
 
