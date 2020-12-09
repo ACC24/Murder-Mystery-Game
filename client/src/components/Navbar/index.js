@@ -67,7 +67,7 @@ class Nav extends Component {
   };
 
   Score = () => {
-    const score = `${this.state.minutes}:${this.state.seconds}`;
+    const score = `${this.state.minutes}:${this.state.seconds} minutes`;
     const { user } = this.props.auth;
     axios
       .put("/api/users/scores", {
