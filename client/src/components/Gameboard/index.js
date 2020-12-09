@@ -23,12 +23,12 @@ import "./Gameboard.css";
             <div
               style={{
                 marginTop: "25px",
-                marginRight: "400px",
+               marginLeft:"300px",
+                marginRight:"300px",
                 borderRadius: "25px",
                 backgroundColor: "rgba(54, 54, 54, 0.8)",
                 color: "yellow",
                 letterSpacing: "1.5px",
-                marginLeft: "50px",
                 fontFamily: "Underdog, cursive",
               }}
             >
